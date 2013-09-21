@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3761AB7017ED21A800F64EF6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3761AB6F17ED21A800F64EF6 /* MapKit.framework */; };
 		37E57DD017ED16C60090A957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DCF17ED16C60090A957 /* Foundation.framework */; };
 		37E57DD217ED16C60090A957 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DD117ED16C60090A957 /* CoreGraphics.framework */; };
 		37E57DD417ED16C60090A957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DD317ED16C60090A957 /* UIKit.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3761AB6F17ED21A800F64EF6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		37E57DCC17ED16C60090A957 /* Nav.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nav.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E57DCF17ED16C60090A957 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37E57DD117ED16C60090A957 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3761AB7017ED21A800F64EF6 /* MapKit.framework in Frameworks */,
 				37E57DD217ED16C60090A957 /* CoreGraphics.framework in Frameworks */,
 				37E57DD417ED16C60090A957 /* UIKit.framework in Frameworks */,
 				37E57DD017ED16C60090A957 /* Foundation.framework in Frameworks */,
@@ -103,6 +106,7 @@
 		37E57DCE17ED16C60090A957 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3761AB6F17ED21A800F64EF6 /* MapKit.framework */,
 				37E57DCF17ED16C60090A957 /* Foundation.framework */,
 				37E57DD117ED16C60090A957 /* CoreGraphics.framework */,
 				37E57DD317ED16C60090A957 /* UIKit.framework */,
@@ -475,6 +479,7 @@
 				37E57E0317ED16C60090A957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37E57E0417ED16C60090A957 /* Build configuration list for PBXNativeTarget "Nav.ioTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +488,7 @@
 				37E57E0617ED16C60090A957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
