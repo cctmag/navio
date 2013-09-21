@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3761AB7017ED21A800F64EF6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3761AB6F17ED21A800F64EF6 /* MapKit.framework */; };
+		3761AB7217ED2AE800F64EF6 /* DMC1stfloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3761AB7117ED2AE800F64EF6 /* DMC1stfloor.png */; };
 		37E57DD017ED16C60090A957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DCF17ED16C60090A957 /* Foundation.framework */; };
 		37E57DD217ED16C60090A957 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DD117ED16C60090A957 /* CoreGraphics.framework */; };
 		37E57DD417ED16C60090A957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DD317ED16C60090A957 /* UIKit.framework */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		3761AB6F17ED21A800F64EF6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3761AB7117ED2AE800F64EF6 /* DMC1stfloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DMC1stfloor.png; sourceTree = "<group>"; };
 		37E57DCC17ED16C60090A957 /* Nav.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nav.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E57DCF17ED16C60090A957 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37E57DD117ED16C60090A957 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3761AB7317ED2AF300F64EF6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3761AB7117ED2AE800F64EF6 /* DMC1stfloor.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		37E57DC317ED16C60090A957 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 				37E57DE717ED16C60090A957 /* MAGViewController.h */,
 				37E57DE817ED16C60090A957 /* MAGViewController.m */,
 				37E57DEA17ED16C60090A957 /* Images.xcassets */,
+				3761AB7317ED2AF300F64EF6 /* Images */,
 				37E57DD617ED16C60090A957 /* Supporting Files */,
 			);
 			path = Nav.io;
@@ -239,6 +250,7 @@
 				37E57DE617ED16C60090A957 /* Main_iPad.storyboard in Resources */,
 				37E57DEB17ED16C60090A957 /* Images.xcassets in Resources */,
 				37E57DE317ED16C60090A957 /* Main_iPhone.storyboard in Resources */,
+				3761AB7217ED2AE800F64EF6 /* DMC1stfloor.png in Resources */,
 				37E57DDA17ED16C60090A957 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
