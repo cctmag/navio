@@ -7,6 +7,8 @@
 //
 
 #import "MAGViewController.h"
+#import "MAGMapOverlay.h"
+#import "MAGMapOverlayView.h"
 
 @interface MAGViewController ()
 - (IBAction)centerOnCCT:(UIBarButtonItem *)sender;
@@ -20,6 +22,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    MAGMapOverlay * mapOverlay = [[MAGMapOverlay alloc] init];
+    [self.cctMap addOverlay:mapOverlay];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,4 +44,14 @@
     [self.cctMap setRegion:theRegion animated:YES];
     
 }
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay {
+    
+    MAGMapOverlay *mapOverlay = overlay;
+    MAGMapOverlayView *mapOverlayView = [[MAGMapOverlayView alloc] initWithOverlay:mapOverlay];
+    
+    return mapOverlayView;
+    
+}
+
 @end

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3761AB7017ED21A800F64EF6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3761AB6F17ED21A800F64EF6 /* MapKit.framework */; };
 		3761AB7217ED2AE800F64EF6 /* DMC1stfloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3761AB7117ED2AE800F64EF6 /* DMC1stfloor.png */; };
+		3761AB7617ED2F4A00F64EF6 /* MAGMapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3761AB7517ED2F4A00F64EF6 /* MAGMapOverlay.m */; };
+		3761AB7917ED316400F64EF6 /* MAGMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3761AB7817ED316400F64EF6 /* MAGMapOverlayView.m */; };
 		37E57DD017ED16C60090A957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DCF17ED16C60090A957 /* Foundation.framework */; };
 		37E57DD217ED16C60090A957 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DD117ED16C60090A957 /* CoreGraphics.framework */; };
 		37E57DD417ED16C60090A957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DD317ED16C60090A957 /* UIKit.framework */; };
@@ -39,6 +41,10 @@
 /* Begin PBXFileReference section */
 		3761AB6F17ED21A800F64EF6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3761AB7117ED2AE800F64EF6 /* DMC1stfloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DMC1stfloor.png; sourceTree = "<group>"; };
+		3761AB7417ED2F4A00F64EF6 /* MAGMapOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGMapOverlay.h; sourceTree = "<group>"; };
+		3761AB7517ED2F4A00F64EF6 /* MAGMapOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGMapOverlay.m; sourceTree = "<group>"; };
+		3761AB7717ED316400F64EF6 /* MAGMapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGMapOverlayView.h; sourceTree = "<group>"; };
+		3761AB7817ED316400F64EF6 /* MAGMapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGMapOverlayView.m; sourceTree = "<group>"; };
 		37E57DCC17ED16C60090A957 /* Nav.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nav.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E57DCF17ED16C60090A957 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37E57DD117ED16C60090A957 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,6 +140,10 @@
 				37E57DE417ED16C60090A957 /* Main_iPad.storyboard */,
 				37E57DE717ED16C60090A957 /* MAGViewController.h */,
 				37E57DE817ED16C60090A957 /* MAGViewController.m */,
+				3761AB7417ED2F4A00F64EF6 /* MAGMapOverlay.h */,
+				3761AB7517ED2F4A00F64EF6 /* MAGMapOverlay.m */,
+				3761AB7717ED316400F64EF6 /* MAGMapOverlayView.h */,
+				3761AB7817ED316400F64EF6 /* MAGMapOverlayView.m */,
 				37E57DEA17ED16C60090A957 /* Images.xcassets */,
 				3761AB7317ED2AF300F64EF6 /* Images */,
 				37E57DD617ED16C60090A957 /* Supporting Files */,
@@ -270,9 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3761AB7917ED316400F64EF6 /* MAGMapOverlayView.m in Sources */,
 				37E57DE017ED16C60090A957 /* MAGAppDelegate.m in Sources */,
 				37E57DE917ED16C60090A957 /* MAGViewController.m in Sources */,
 				37E57DDC17ED16C60090A957 /* main.m in Sources */,
+				3761AB7617ED2F4A00F64EF6 /* MAGMapOverlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
