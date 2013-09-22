@@ -1,5 +1,5 @@
 //
-//  NVViewController.h
+//  CentralViewController.h
 //  Navio-beacon
 //
 //  Created by Danny Holmes on 9/21/13.
@@ -10,6 +10,6 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface NVViewController : UIViewController
+@interface CentralViewController : UIViewController
 
 @end
