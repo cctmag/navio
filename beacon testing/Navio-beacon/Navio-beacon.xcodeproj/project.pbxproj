@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		634DE61817EF51DA004C2385 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634DE61717EF51DA004C2385 /* MessageUI.framework */; };
+		6395193117FA47F100631AEA /* CentralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6395193017FA47F100631AEA /* CentralViewController.m */; };
 		63AFE76717EE468100D61ED4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AFE76617EE468100D61ED4 /* Foundation.framework */; };
 		63AFE76917EE468100D61ED4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AFE76817EE468100D61ED4 /* CoreGraphics.framework */; };
 		63AFE76B17EE468100D61ED4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AFE76A17EE468100D61ED4 /* UIKit.framework */; };
@@ -26,7 +27,6 @@
 		63DE58EE17EE4FF100484C5F /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DE58ED17EE4FF100484C5F /* CoreBluetooth.framework */; };
 		63DE58F017EE4FF800484C5F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DE58EF17EE4FF800484C5F /* CoreLocation.framework */; };
 		63DE58F317EE505200484C5F /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DE58F217EE505200484C5F /* BeaconViewController.m */; };
-		63DE58F717EE508800484C5F /* CentralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DE58F617EE508800484C5F /* CentralViewController.m */; };
 		63DE58F917EE6FAC00484C5F /* LSU MAG graphic 640x1010.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DE58F817EE6FAC00484C5F /* LSU MAG graphic 640x1010.png */; };
 		63DE58FB17EE735300484C5F /* LSU MAG Graphic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63DE58FA17EE735300484C5F /* LSU MAG Graphic.jpg */; };
 		63DE58FE17EE838200484C5F /* StoredUUID.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63DE58FC17EE838200484C5F /* StoredUUID.xcdatamodeld */; };
@@ -45,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		634DE61717EF51DA004C2385 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6395192F17FA47F100631AEA /* CentralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CentralViewController.h; sourceTree = "<group>"; };
+		6395193017FA47F100631AEA /* CentralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentralViewController.m; sourceTree = "<group>"; };
 		63AFE76317EE468100D61ED4 /* Navio-beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navio-beacon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AFE76617EE468100D61ED4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		63AFE76817EE468100D61ED4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,8 +71,6 @@
 		63DE58EF17EE4FF800484C5F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		63DE58F117EE505200484C5F /* BeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconViewController.h; sourceTree = "<group>"; };
 		63DE58F217EE505200484C5F /* BeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconViewController.m; sourceTree = "<group>"; };
-		63DE58F517EE508800484C5F /* CentralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CentralViewController.h; sourceTree = "<group>"; };
-		63DE58F617EE508800484C5F /* CentralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentralViewController.m; sourceTree = "<group>"; };
 		63DE58F817EE6FAC00484C5F /* LSU MAG graphic 640x1010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LSU MAG graphic 640x1010.png"; sourceTree = "<group>"; };
 		63DE58FA17EE735300484C5F /* LSU MAG Graphic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "LSU MAG Graphic.jpg"; sourceTree = "<group>"; };
 		63DE58FD17EE838200484C5F /* StoredUUID.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoredUUID.xcdatamodel; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 				63AFE77F17EE468100D61ED4 /* NVViewController.m */,
 				63DE58F117EE505200484C5F /* BeaconViewController.h */,
 				63DE58F217EE505200484C5F /* BeaconViewController.m */,
-				63DE58F517EE508800484C5F /* CentralViewController.h */,
-				63DE58F617EE508800484C5F /* CentralViewController.m */,
+				6395192F17FA47F100631AEA /* CentralViewController.h */,
+				6395193017FA47F100631AEA /* CentralViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -302,10 +302,10 @@
 			files = (
 				63DE58F317EE505200484C5F /* BeaconViewController.m in Sources */,
 				63AFE78017EE468100D61ED4 /* NVViewController.m in Sources */,
+				6395193117FA47F100631AEA /* CentralViewController.m in Sources */,
 				63AFE77717EE468100D61ED4 /* NVAppDelegate.m in Sources */,
 				63DE58FE17EE838200484C5F /* StoredUUID.xcdatamodeld in Sources */,
 				63AFE77317EE468100D61ED4 /* main.m in Sources */,
-				63DE58F717EE508800484C5F /* CentralViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
