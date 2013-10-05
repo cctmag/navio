@@ -35,7 +35,7 @@
     return self;
 }
 
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(OurBeaconRegion *)region
 {
     // CoreLocation will call this delegate method at 1 Hz with updated range information.
     // Beacons will be categorized and displayed by proximity.
@@ -200,9 +200,9 @@
         
         NSUUID *uuid = (NSUUID *)anObject;
         
-        NSUUID *identifier = [[NSUUID alloc] initWithUUIDString:@"4371DC88-D61B-48B0-BC86-EEF04A8EA36B"];
+        //NSUUID *identifier = [[NSUUID alloc] initWithUUIDString:@"4371DC88-D61B-48B0-BC86-EEF04A8EA36B"];
         
-        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[identifier UUIDString]];
+        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[uuid UUIDString]];
         NSLog(@"region %@", region);
         [_rangedRegions addObject:region];
         NSLog(@"added %@",_rangedRegions);
@@ -225,7 +225,7 @@
 {
     
     NSArray *sectionValues = [_beacons allValues];
-    NSLog(@"%@",sectionValues);
+    NSLog(@"........%@",sectionValues);
     return [[sectionValues objectAtIndex:section] count];
     
     //return beaconCount;
@@ -268,17 +268,19 @@
     
     UILabel *rangeLabel = (UILabel *)[cell viewWithTag:100];
     //UILabel *descriptionLabel = (UILabel *)[cell viewWithTag:200];
-    UILabel *uuidLabel = (UILabel *)[cell viewWithTag:300];
+    //UILabel *uuidLabel = (UILabel *)[cell viewWithTag:300];
     
     
     // Display the UUID, major, minor and accuracy for each beacon.
     NSNumber *sectionKey = [[_beacons allKeys] objectAtIndex:indexPath.section];
     CLBeacon *beacon = [[_beacons objectForKey:sectionKey] objectAtIndex:indexPath.row];
     
+    //CLRegion *region = [[_beacons objectForKey:sectionKey] objectAtIndex:indexPath.row];
+    
     
     rangeLabel.text = [NSString stringWithFormat:@"M:%@, m:%@, db:%.2ld", beacon.major, beacon.minor, (long)beacon.rssi];
     //descriptionLabel.text = [NSString stringWithFormat:[_descriptorArray objectAtIndex:indexPath.row]];
-    uuidLabel.text = [beacon.proximityUUID UUIDString];
+    //uuidLabel.text = [beacon.proximityUUID];
    
     //cell.detailTextLabel.text = [NSString stringWithFormat:@"Major: %@, Minor: %@, Acc: %.2lddb", beacon.major, beacon.minor, (long)beacon.rssi];
 

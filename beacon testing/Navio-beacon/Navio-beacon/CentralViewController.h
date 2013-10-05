@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "OurBeaconRegion.h"
 
 @interface CentralViewController : UICollectionViewController <CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 

@@ -232,16 +232,21 @@
                 NSDictionary *peripheralData = nil;
                 if(_uuid && _major && _minor)
                 {
+
+                    
                     CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major minor:_minor identifier:idString];
                     peripheralData = [region peripheralDataWithMeasuredPower:nil];
                 }
                 else if(_uuid && _major)
                 {
+                    
+                    
                     CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major  identifier:idString];
                     peripheralData = [region peripheralDataWithMeasuredPower:nil];
                 }
                 else if(_uuid)
                 {
+
                     CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid identifier:idString];
                     peripheralData = [region peripheralDataWithMeasuredPower:nil];
                 }
