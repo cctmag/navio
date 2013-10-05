@@ -149,11 +149,11 @@
         NSArray *array = [context executeFetchRequest:request error:nil];
         NSString *UUID = [[array valueForKey:@"uuid_string"] componentsJoinedByString:@","];
         
-        _uuid = [[NSUUID alloc] initWithUUIDString:UUID];
+        idString = [NSString stringWithString:UUID];
 
-        _uuidLabel.text = [NSString stringWithFormat:@"%@",UUID];
+        _uuidLabel.text = [NSString stringWithFormat:@"%@",idString];
         
-        NSLog(@"Fetched %@",UUID);
+        NSLog(@"Fetched %@",idString);
         
     } else {
         

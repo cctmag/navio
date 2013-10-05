@@ -14,16 +14,16 @@
 
 @implementation CentralViewController
 {
-    //NSMutableDictionary *_beacons;
     NSMutableDictionary *_beacons;
-    NSArray *_theBeacons;
+    //NSMutableDictionary *_beacons;
+    //NSArray *_theBeacons;
     CLLocationManager *_locationManager;
     NSMutableArray *_rangedRegions;
     NSUUID *_UUID;
     NSArray *_uuidArray;
-    NSArray *_descriptorArray;
-    int beaconCount;
-    int beaconCount2;
+    //NSArray *_descriptorArray;
+    //int beaconCount;
+    //int beaconCount2;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,103 +40,98 @@
     // CoreLocation will call this delegate method at 1 Hz with updated range information.
     // Beacons will be categorized and displayed by proximity.
     
-    [_beacons removeAllObjects];
+
     
     //NSLog(@"%@",beacons);
     //beaconCount = 0;
     
-    NSEnumerator *enumerator = [beacons objectEnumerator];
-    id anObject;
-    
-    while (anObject = [enumerator nextObject]) {
-        NSLog( @"......%@",anObject);
-        
-        beaconCount2 += 1;
-        NSLog(@"beaconCount %d",beaconCount2);
-        
-        NSNumber *stupidNumber = [[NSNumber alloc] initWithInt:beaconCount2];
-        
-        NSLog(@"stupidNumber %@",stupidNumber);
-        
-        [_beacons setObject:anObject forKey:stupidNumber];
-        
-        NSLog(@"%d",_beacons.count);
-        
-    }
-    
-    NSLog(@"done");
-    beaconCount2 = 0;
-    
-    
-}
-
-
-
- 
-//    _beaconCount = beacons.count;
+//    NSEnumerator *enumerator = [beacons objectEnumerator];
+//    id anObject;
 //    
-//    
-//    NSLog(@"%d",beacons.count);
-//    NSArray *unknownBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityUnknown]];
-//    
-//    //NSLog(@"%@",unknownBeacons);
-//    
-//    if([unknownBeacons count])
-//        [_beacons setObject:unknownBeacons forKey:[NSNumber numberWithInt:CLProximityUnknown]];
-//    
-//    //NSLog(@"%@",_beacons);
-//    
-//    
-//    NSArray *immediateBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityImmediate]];
-//    
-//    //NSLog(@"%@",immediateBeacons);
-//    
-//    if([immediateBeacons count])
-//        [_beacons setObject:immediateBeacons forKey:[NSNumber numberWithInt:CLProximityImmediate]];
-//    
-//    // NSLog(@"%@",_beacons);
-//    
-//    NSArray *nearBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityNear]];
-//    
-//   // NSLog(@"%@",nearBeacons);
-//    
-//    if([nearBeacons count])
-//        [_beacons setObject:nearBeacons forKey:[NSNumber numberWithInt:CLProximityNear]];
-//    
-//    // NSLog(@"%@",_beacons);
-//    
-//    NSArray *farBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityFar]];
-//    
-//   // NSLog(@"%@",farBeacons);
-//    
-//    if([farBeacons count])
-//        [_beacons setObject:farBeacons forKey:[NSNumber numberWithInt:CLProximityFar]];
-//    
-//    //NSLog(@"%@",_beacons);
-//    
-//    
-//    if (_beacons.count > 0) {
-//    NSLog(@"1st count %d",_beacons.count);
-//        [self.collectionView reloadData];
-//    } else {
-//        NSLog(@"no beacons");
+//    while (anObject = [enumerator nextObject]) {
+//        NSLog( @"......%@",anObject);
+//        
+//        beaconCount2 += 1;
+//        NSLog(@"beaconCount %d",beaconCount2);
+//        
+//        NSNumber *stupidNumber = [[NSNumber alloc] initWithInt:beaconCount2];
+//        
+//        NSLog(@"stupidNumber %@",stupidNumber);
+//        
+//        [_beacons setObject:anObject forKey:stupidNumber];
+//        
+//        NSLog(@"%d",_beacons.count);
+//        
 //    }
-    
-    //[self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
+//    
+//    NSLog(@"done");
+//    beaconCount2 = 0;
+//    
+//    
 //}
+//
+//
+//
+// 
+//    _beaconCount = beacons.count;
+    
+    [_beacons removeAllObjects];
+
+    NSArray *unknownBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityUnknown]];
+
+    //NSLog(@"%@",unknownBeacons);
+
+    if([unknownBeacons count])
+        [_beacons setObject:unknownBeacons forKey:[NSNumber numberWithInt:CLProximityUnknown]];
+
+    //NSLog(@"%@",_beacons);
+
+
+    NSArray *immediateBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityImmediate]];
+
+    //NSLog(@"%@",immediateBeacons);
+
+    if([immediateBeacons count])
+        [_beacons setObject:immediateBeacons forKey:[NSNumber numberWithInt:CLProximityImmediate]];
+
+    // NSLog(@"%@",_beacons);
+
+    NSArray *nearBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityNear]];
+
+   // NSLog(@"%@",nearBeacons);
+
+    if([nearBeacons count])
+        [_beacons setObject:nearBeacons forKey:[NSNumber numberWithInt:CLProximityNear]];
+
+    // NSLog(@"%@",_beacons);
+
+    NSArray *farBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityFar]];
+
+   // NSLog(@"%@",farBeacons);
+
+    if([farBeacons count])
+        [_beacons setObject:farBeacons forKey:[NSNumber numberWithInt:CLProximityFar]];
+
+    //NSLog(@"%@",_beacons);
+
+    NSLog(@"%d",beacons.count);
+    [self.collectionView reloadData];
+
+    //[self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    
     // Start ranging when the view appears.
     
-    NSEnumerator *enumerator = [_uuidArray objectEnumerator];
+    NSLog(@"2......   %@",_rangedRegions);
+    
+    NSEnumerator *enumerator = [_rangedRegions objectEnumerator];
     id anObject;
     
     while (anObject = [enumerator nextObject]) {
-
-        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:anObject identifier:[anObject UUIDString]];
-        NSLog(@"%@",region);
-        [_locationManager startRangingBeaconsInRegion:region];
+        [_locationManager startRangingBeaconsInRegion:anObject];
         NSLog(@"ranging");
     }
     
@@ -160,6 +155,7 @@
     
     
     _beacons = [[NSMutableDictionary alloc] init];
+    _rangedRegions = [[NSMutableArray alloc] init];
     
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
@@ -176,14 +172,14 @@
    // NSUUID *uuid3 = [[NSUUID alloc] initWithUUIDString:@"76272CBC-A53C-4EA8-9F0B-99B6CD622E24"];
     //NSUUID *uuid4 = [[NSUUID alloc] initWithUUIDString:@"90B962D6-3619-4D1A-AE41-784DEDA9CBAF"];
     
-    NSString *desc1 = [[NSString alloc] initWithFormat:@"iPad1"];
-    NSString *desc2 = [[NSString alloc] initWithFormat:@"Location"];
+    //NSString *desc1 = [[NSString alloc] initWithFormat:@"iPad1"];
+   // NSString *desc2 = [[NSString alloc] initWithFormat:@"Location"];
    // NSString *desc3 = [[NSString alloc] initWithFormat:@"Room 200"];
     
     _uuidArray = [[NSArray alloc] initWithObjects:uuid, nil];
-    NSLog(@"%@", _uuidArray);
-    _descriptorArray = [[NSArray alloc] initWithObjects:desc1, desc2, nil];
-    NSLog(@"%@", _descriptorArray);
+    NSLog(@"uuidArray %@", _uuidArray);
+    // _descriptorArray = [[NSArray alloc] initWithObjects:desc1, desc2, nil];
+    //NSLog(@"%@", _descriptorArray);
     
     //////////
     //////////////////////////////////////////////////////
@@ -197,12 +193,19 @@
     id anObject;
     
     while (anObject = [enumerator nextObject]) {
-
-        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:anObject identifier:[anObject UUIDString]];
-        NSLog(@"%@", region);
-        [_rangedRegions addObject:region];
-        NSLog(@"added");
         
+        
+        //NSLog(@"%@",[anObject identifier]);
+        //NSString *identifier = [NSString stringWithFormat:@"CD4213D4-BDF4-42C8-9008-5C2F438107F0"];
+        
+        NSUUID *uuid = (NSUUID *)anObject;
+        
+       // NSUUID *identifier = [[NSUUID alloc] initWithUUIDString:@"CD4213D4-BDF4-42C8-9008-5C2F438107F0"];
+        
+        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[uuid UUIDString]];
+        NSLog(@"region %@", region);
+        [_rangedRegions addObject:region];
+        NSLog(@"added %@",_rangedRegions);
         
     }
     
@@ -210,22 +213,22 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    NSInteger theInt = (int)1;
+    //NSInteger theInt = (int)1;
     
     //NSInteger myInt = (NSUInteger)_beacons.count;
     //NSLog(@"2nd count %d", myInt);
-    return theInt;
+    return _beacons.count;
     
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    
-//    NSArray *sectionValues = [_beacons allValues];
-//    NSLog(@"%@",sectionValues);
-//    return [[sectionValues objectAtIndex:section] count];
     
-    return beaconCount;
+    NSArray *sectionValues = [_beacons allValues];
+    NSLog(@"%@",sectionValues);
+    return [[sectionValues objectAtIndex:section] count];
+    
+    //return beaconCount;
 
 }
 
