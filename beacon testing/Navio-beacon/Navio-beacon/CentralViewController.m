@@ -200,9 +200,9 @@
         
         NSUUID *uuid = (NSUUID *)anObject;
         
-       // NSUUID *identifier = [[NSUUID alloc] initWithUUIDString:@"CD4213D4-BDF4-42C8-9008-5C2F438107F0"];
+        NSUUID *identifier = [[NSUUID alloc] initWithUUIDString:@"4371DC88-D61B-48B0-BC86-EEF04A8EA36B"];
         
-        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[uuid UUIDString]];
+        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[identifier UUIDString]];
         NSLog(@"region %@", region);
         [_rangedRegions addObject:region];
         NSLog(@"added %@",_rangedRegions);
