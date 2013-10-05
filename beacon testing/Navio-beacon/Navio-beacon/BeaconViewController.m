@@ -27,6 +27,7 @@
     int _major;
     int _minor;
     int _power;
+    NSString *idString;
     
     NSMutableDictionary *_beacons;
     CLLocationManager *_locationManager;
@@ -125,6 +126,8 @@
     [super viewDidLoad];
     
     
+    _uuid = [[NSUUID alloc] initWithUUIDString:@"E36397B6-C4FC-4D90-A044-6A35606F8D0D"];
+    
     //_power = 50;
     
     _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
@@ -158,16 +161,16 @@
         //Generate a new UUID and save it to persistent store with Core Data
         ////////////////////////////////////
         
-        NSString *UUID = [[NSUUID UUID] UUIDString];                // Generate a random UUID
-        _uuid = [[NSUUID alloc] initWithUUIDString:UUID];           // Store the generated UUID
-        _uuidLabel.text = [NSString stringWithFormat:@"%@",UUID];
+        idString = [[NSUUID UUID] UUIDString];                // Generate a random UUID
+        //_uuid = [[NSUUID alloc] initWithUUIDString:UUID];           // Store the generated UUID
+        _uuidLabel.text = idString;
         
         NSManagedObject *newUUID = [NSEntityDescription insertNewObjectForEntityForName:@"UUID" inManagedObjectContext:context];
-        [newUUID setValue:UUID forKey:@"uuid_string"];
+        [newUUID setValue:idString forKey:@"uuid_string"];
         
         [self saveContext];                                          // Save the object to persistent store
 
-        NSLog(@"Generated %@",UUID);
+        NSLog(@"Generated %@",idString);
         
     }
     
@@ -229,17 +232,17 @@
                 NSDictionary *peripheralData = nil;
                 if(_uuid && _major && _minor)
                 {
-                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major minor:_minor identifier:@"com.apple.AirLocate"];
+                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major minor:_minor identifier:idString];
                     peripheralData = [region peripheralDataWithMeasuredPower:nil];
                 }
                 else if(_uuid && _major)
                 {
-                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major  identifier:@"com.apple.AirLocate"];
+                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major  identifier:idString];
                     peripheralData = [region peripheralDataWithMeasuredPower:nil];
                 }
                 else if(_uuid)
                 {
-                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid identifier:@"com.apple.AirLocate"];
+                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid identifier:idString];
                     peripheralData = [region peripheralDataWithMeasuredPower:nil];
                 }
                 
