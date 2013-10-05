@@ -248,7 +248,7 @@
 				ORGANIZATIONNAME = "LSU|MAG";
 				TargetAttributes = {
 					63AFE76217EE468100D61ED4 = {
-						DevelopmentTeam = 74YVKXMF7W;
+						DevelopmentTeam = WUJS7UYBT4;
 					};
 					63AFE78617EE468100D61ED4 = {
 						TestTargetID = 63AFE76217EE468100D61ED4;
