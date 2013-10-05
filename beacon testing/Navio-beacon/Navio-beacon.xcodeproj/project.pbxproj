@@ -247,6 +247,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "LSU|MAG";
 				TargetAttributes = {
+					63AFE76217EE468100D61ED4 = {
+						DevelopmentTeam = 74YVKXMF7W;
+					};
 					63AFE78617EE468100D61ED4 = {
 						TestTargetID = 63AFE76217EE468100D61ED4;
 					};
@@ -443,10 +446,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Navio-beacon/Navio-beacon-Prefix.pch";
 				INFOPLIST_FILE = "Navio-beacon/Navio-beacon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -458,10 +463,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Navio-beacon/Navio-beacon-Prefix.pch";
 				INFOPLIST_FILE = "Navio-beacon/Navio-beacon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
