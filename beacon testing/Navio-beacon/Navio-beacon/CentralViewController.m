@@ -35,7 +35,7 @@
     return self;
 }
 
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(OurBeaconRegion *)region
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     // CoreLocation will call this delegate method at 1 Hz with updated range information.
     // Beacons will be categorized and displayed by proximity.
