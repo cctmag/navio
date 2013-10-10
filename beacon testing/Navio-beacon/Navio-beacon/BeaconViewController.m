@@ -320,7 +320,6 @@
     if (textField == self.majorTextField) {
  
         [self deleteMajor];
-        
 
         
         
@@ -375,13 +374,13 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
+//    
+//    
+//    request.propertiesToFetch = @[@"major",@"minor"];
+//    request.resultType = NSDictionaryResultType;
+//    NSArray *array = [context executeFetchRequest:request error:nil];
     
-    
-    request.propertiesToFetch = @[@"major",@"minor"];
-    request.resultType = NSDictionaryResultType;
     NSArray *array = [context executeFetchRequest:request error:nil];
-    
-   // NSArray *array = [context executeFetchRequest:request error:nil];
     
     for (NSManagedObject *major in array) {
         [context deleteObject:major];
@@ -398,9 +397,9 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
-    
-    request.propertiesToFetch = @[@"major",@"minor"];
-    request.resultType = NSDictionaryResultType;
+//    
+//    request.propertiesToFetch = @[@"major",@"minor"];
+//    request.resultType = NSDictionaryResultType;
     NSArray *array = [context executeFetchRequest:request error:nil];
     
     
