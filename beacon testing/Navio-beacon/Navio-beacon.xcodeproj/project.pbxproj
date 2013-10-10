@@ -451,7 +451,11 @@
 				GCC_PREFIX_HEADER = "Navio-beacon/Navio-beacon-Prefix.pch";
 				INFOPLIST_FILE = "Navio-beacon/Navio-beacon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "AF0E80DE-76E0-4673-B0BF-2850DDFF63A1";
+=======
+				PROVISIONING_PROFILE = "";
+>>>>>>> a5eecc42d46b001f48c89aef89b31305555c2d1f
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -468,7 +472,11 @@
 				GCC_PREFIX_HEADER = "Navio-beacon/Navio-beacon-Prefix.pch";
 				INFOPLIST_FILE = "Navio-beacon/Navio-beacon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "AF0E80DE-76E0-4673-B0BF-2850DDFF63A1";
+=======
+				PROVISIONING_PROFILE = "";
+>>>>>>> a5eecc42d46b001f48c89aef89b31305555c2d1f
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
