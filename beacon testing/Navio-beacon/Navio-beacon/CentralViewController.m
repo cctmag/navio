@@ -213,18 +213,10 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-<<<<<<< HEAD
-    NSLog(@"this is the beacon count: %lu", (unsigned long)_beacons.count);
+    
+    //NSLog(@"this is the beacon count: %lu", (unsigned long)_beacons.count);
     return _beacons.count;
 
-=======
-    //NSInteger theInt = (int)1;
-    
-    //NSInteger myInt = (NSUInteger)_beacons.count;
-    //NSLog(@"2nd count %d", myInt);
-    return _beacons.count;
-    
->>>>>>> 7e7371e2d3a154d95a4f418696674d12c627f2b6
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
