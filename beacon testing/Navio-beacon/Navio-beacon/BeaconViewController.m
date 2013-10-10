@@ -393,6 +393,8 @@
 
 -(void)deleteMinor {
     
+    //make a change
+    
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
