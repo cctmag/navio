@@ -9,7 +9,7 @@
 #import "MAGViewController.h"
 #import "MAGMapOverlay.h"
 #import "MAGMapOverlayView.h"
-#import <GoogleMaps/GoogleMaps.h>
+
 
 
 
@@ -28,20 +28,38 @@ GMSMapView *mapView_;
 - (void)loadView {
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:30.407914
-                                                            longitude:-91.172096
-                                                                 zoom:22];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:30.407451
+                                                            longitude:-91.172437
+                                                                 zoom:19];
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.myLocationEnabled = YES;
-    mapView_.mapType = kGMSTypeHybrid;
+    // mapView_.mapType = kGMSTypeHybrid;
     self.view = mapView_;
     
     // Creates a marker in the center of the map.
+    // 30.407035,-91.172672
+    // 30.407836,-91.172102
+    
+    // 30.407050,-91.172668
+    // 30.407856,-91.172082
+    
     GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(30.407614, -91.171743);
+    marker.position = CLLocationCoordinate2DMake(30.407050,-91.172668);
     marker.title = @"Sydney";
     marker.snippet = @"Australia";
+    mapView_.delegate = self;
     marker.map = mapView_;
+    
+    CLLocationCoordinate2D southWest = CLLocationCoordinate2DMake(30.407050,-91.172668);
+    CLLocationCoordinate2D northEast = CLLocationCoordinate2DMake(30.407856,-91.172082);
+    GMSCoordinateBounds *overlayBounds = [[GMSCoordinateBounds alloc] initWithCoordinate:southWest
+                                                                              coordinate:northEast];
+    
+    UIImage *icon = [UIImage imageNamed:@"DMC2nfloor.png"];
+    GMSGroundOverlay *overlay =
+    [GMSGroundOverlay groundOverlayWithBounds:overlayBounds icon:icon];
+    overlay.bearing = 6.4;
+    overlay.map = mapView_;
 }
 
 - (void)viewDidLoad
@@ -82,5 +100,14 @@ GMSMapView *mapView_;
     return nil;
     
 }
+
+#pragma mark - GMSMapViewDelegate
+
+- (void)mapView:(GMSMapView *)mapView
+didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
+}
+
+
 
 @end
