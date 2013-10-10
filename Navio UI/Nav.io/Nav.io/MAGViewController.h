@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import <GoogleMaps/GoogleMaps.h>
 
-@interface MAGViewController : UIViewController <MKMapViewDelegate, GMSMapViewDelegate>
+@interface MAGViewController : UIViewController <MKMapViewDelegate>
 
 @end
