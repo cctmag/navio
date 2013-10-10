@@ -319,7 +319,7 @@
     
     if (textField == self.majorTextField) {
  
-        [self deleteMajor];
+        //[self deleteMajor];
 
         
         
@@ -327,13 +327,13 @@
         
         _major = thisMajor;
         
-        NSNumber *majorNumber = [NSNumber numberWithInt:_major];
-        
-        NSManagedObject *major = [NSEntityDescription insertNewObjectForEntityForName:@"DATA" inManagedObjectContext:context];
-        [major setValue:majorNumber forKey:@"major"];
-        
-        [self saveContext];                                          // Save the object to persistent store
-        
+//        NSNumber *majorNumber = [NSNumber numberWithInt:_major];
+//        
+//        NSManagedObject *major = [NSEntityDescription insertNewObjectForEntityForName:@"DATA" inManagedObjectContext:context];
+//        [major setValue:majorNumber forKey:@"major"];
+//        
+//        [self saveContext];                                          // Save the object to persistent store
+//        
         
         
         NSLog(@"Major %@",self.majorTextField.text);
@@ -344,20 +344,20 @@
         
     } else {
       
-        [self deleteMinor];
+        //[self deleteMinor];
         
         
         int thisMinor = [self.minorTextField.text intValue];
         
         _minor = thisMinor;
-        
-        NSNumber *minorNumber = [NSNumber numberWithInt:_minor];
-        
-        
-        NSManagedObject *minor = [NSEntityDescription insertNewObjectForEntityForName:@"DATA" inManagedObjectContext:context];
-        [minor setValue:minorNumber forKey:@"minor"];
-        
-        [self saveContext];
+//        
+//        NSNumber *minorNumber = [NSNumber numberWithInt:_minor];
+//        
+//        
+//        NSManagedObject *minor = [NSEntityDescription insertNewObjectForEntityForName:@"DATA" inManagedObjectContext:context];
+//        [minor setValue:minorNumber forKey:@"minor"];
+//        
+//        [self saveContext];
         
         
         NSLog(@"Minor %@",self.minorTextField.text);
@@ -369,47 +369,47 @@
     
 }
 
--(void)deleteMajor {
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
+//-(void)deleteMajor {
 //    
+//    NSManagedObjectContext *context = [self managedObjectContext];
 //    
-//    request.propertiesToFetch = @[@"major",@"minor"];
-//    request.resultType = NSDictionaryResultType;
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
+////    
+////    
+////    request.propertiesToFetch = @[@"major",@"minor"];
+////    request.resultType = NSDictionaryResultType;
+////    NSArray *array = [context executeFetchRequest:request error:nil];
+//    
 //    NSArray *array = [context executeFetchRequest:request error:nil];
-    
-    NSArray *array = [context executeFetchRequest:request error:nil];
-    
-    for (NSManagedObject *major in array) {
-        [context deleteObject:major];
-    }
-    [self saveContext];
-    
-    NSLog(@"major deleted");
-}
-
--(void)deleteMinor {
-    
-    //make a change
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
 //    
-//    request.propertiesToFetch = @[@"major",@"minor"];
-//    request.resultType = NSDictionaryResultType;
-    NSArray *array = [context executeFetchRequest:request error:nil];
-    
-    
-    for (NSManagedObject *minor in array) {
-        [context deleteObject:minor];
-    }
-    [self saveContext];
-    
-    NSLog(@"minor deleted");
-}
+//    for (NSManagedObject *major in array) {
+//        [context deleteObject:major];
+//    }
+//    [self saveContext];
+//    
+//    NSLog(@"major deleted");
+//}
+//
+//-(void)deleteMinor {
+//    
+//    //make a change
+//    
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
+////    
+////    request.propertiesToFetch = @[@"major",@"minor"];
+////    request.resultType = NSDictionaryResultType;
+//    NSArray *array = [context executeFetchRequest:request error:nil];
+//    
+//    
+//    for (NSManagedObject *minor in array) {
+//        [context deleteObject:minor];
+//    }
+//    [self saveContext];
+//    
+//    NSLog(@"minor deleted");
+//}
 
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
