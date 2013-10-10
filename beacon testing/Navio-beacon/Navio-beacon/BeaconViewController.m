@@ -10,11 +10,13 @@
 
 @interface BeaconViewController ()
 
-- (IBAction)pressedUUID:(id)sender;
 - (IBAction)beaconSwitch:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *uuidLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *uuidLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beaconSwitchLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *beaconSwitch;
+@property (weak, nonatomic) IBOutlet UITextField *majorTextField;
+@property (weak, nonatomic) IBOutlet UITextField *minorTextField;
+
 
 @end
 
@@ -79,31 +81,37 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
     }
+    NSLog(@"saved %@", managedObjectContext);
 }
 
 ////////////////////////////////////
 // Handles checking if the storage is empty or not
 ////////////////////////////////////
 
-- (BOOL)coreDataHasEntriesForEntityName:(NSString *)UUID {
+- (BOOL)coreDataHasEntriesForEntityName:(NSString *)DATA {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:UUID inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:DATA inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
-    [request setFetchLimit:1];
+    [request setFetchLimit:2];
     NSError *error = nil;
     NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (!results) {
         NSLog(@"Fetch error: %@", error);
         abort();
     }
-    if ([results count] == 0) {
+    if ([results count] < 2) {
+        
+        NSLog(@"No DATA");
         return NO;
-        NSLog(@"NO");
+
     } else {
+        
+        NSLog(@"%@ %@",[results objectAtIndex:0],[results objectAtIndex:1]);
         return YES;
-        NSLog(@"YES");
+        
     }
 }
+
 
 ////////////////////////////////////
 // Other methods to set up
@@ -124,6 +132,7 @@
 {
     [super viewDidLoad];
     
+    _uuid = [[NSUUID alloc] initWithUUIDString:@"E36397B6-C4FC-4D90-A044-6A35606F8D0D"];
     
     //_power = 50;
     
@@ -135,41 +144,54 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     
     ////////////////////////////////////
-    //Fetch UUID if it already exists in persistent store.
+    //Fetch properties if they already exists in persistent store.
     ////////////////////////////////////
     
-    if ([self coreDataHasEntriesForEntityName:@"UUID"] == YES) {
+    if ([self coreDataHasEntriesForEntityName:@"DATA"] == YES) {
         
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"UUID"];
-        request.propertiesToFetch = @[@"uuid_string"];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
+        request.propertiesToFetch = @[@"major",@"minor"];
         request.resultType = NSDictionaryResultType;
         NSArray *array = [context executeFetchRequest:request error:nil];
-        NSString *UUID = [[array valueForKey:@"uuid_string"] componentsJoinedByString:@","];
-        
-        _uuid = [[NSUUID alloc] initWithUUIDString:UUID];
+        NSString *major = [array valueForKey:@"major"];
+        NSString *minor = [array valueForKey:@"minor"];
+    
+        NSLog(@"major %@ minor %@",major,minor);
 
-        _uuidLabel.text = [NSString stringWithFormat:@"%@",UUID];
+    
+        //idString = [NSString stringWithString:UUID];
+
+        //_uuidLabel.text = [NSString stringWithFormat:@"%@",idString];
         
-        NSLog(@"Fetched %@",UUID);
+        //NSLog(@"Fetched %@",idString);
         
     } else {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Identifiers Needed"
+                                                        message:@"You must select a Major and Minor identifier."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }
         
         ////////////////////////////////////
         //Generate a new UUID and save it to persistent store with Core Data
         ////////////////////////////////////
         
-        NSString *UUID = [[NSUUID UUID] UUIDString];                // Generate a random UUID
-        _uuid = [[NSUUID alloc] initWithUUIDString:UUID];           // Store the generated UUID
-        _uuidLabel.text = [NSString stringWithFormat:@"%@",UUID];
-        
-        NSManagedObject *newUUID = [NSEntityDescription insertNewObjectForEntityForName:@"UUID" inManagedObjectContext:context];
-        [newUUID setValue:UUID forKey:@"uuid_string"];
-        
-        [self saveContext];                                          // Save the object to persistent store
-
-        NSLog(@"Generated %@",UUID);
-        
-    }
+//        idString = [[NSUUID UUID] UUIDString];                // Generate a random UUID
+//        //_uuid = [[NSUUID alloc] initWithUUIDString:UUID];           // Store the generated UUID
+//        _uuidLabel.text = idString;
+//        
+//        NSManagedObject *newUUID = [NSEntityDescription insertNewObjectForEntityForName:@"UUID" inManagedObjectContext:context];
+//        [newUUID setValue:idString forKey:@"uuid_string"];
+//        
+//        [self saveContext];                                          // Save the object to persistent store
+//
+//        NSLog(@"Generated %@",idString);
+    
+    //}
     
     ////////////////////////////////////
     //Check if peripheral manager is active set up initial state.
@@ -226,22 +248,36 @@
                 // We probably don't need all these cases when we hard code major and minor into beacons...
                 //////////////////////////////////////////////////
                 
+                NSString *identifier = [NSString stringWithFormat:@"edu.LSU.MAG"];
+                
                 NSDictionary *peripheralData = nil;
                 if(_uuid && _major && _minor)
                 {
-                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major minor:_minor identifier:@"com.apple.AirLocate"];
+                    
+                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major minor:_minor identifier:identifier];
                     peripheralData = [region peripheralDataWithMeasuredPower:nil];
+                    
+                } else {
+                    
+                    nil;
+                    //Make pop up and require major and minor
+                    
                 }
-                else if(_uuid && _major)
-                {
-                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major  identifier:@"com.apple.AirLocate"];
-                    peripheralData = [region peripheralDataWithMeasuredPower:nil];
-                }
-                else if(_uuid)
-                {
-                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid identifier:@"com.apple.AirLocate"];
-                    peripheralData = [region peripheralDataWithMeasuredPower:nil];
-                }
+                
+                
+//                else if(_uuid && _major)
+//                {
+//                    
+//                    
+//                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major  identifier:identifier];
+//                    peripheralData = [region peripheralDataWithMeasuredPower:nil];
+//                }
+//                else if(_uuid)
+//                {
+//
+//                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid identifier:identifier];
+//                    peripheralData = [region peripheralDataWithMeasuredPower:nil];
+//                }
                 
                 //////////////////////////////////////////////////
                 // Now we advertise.
@@ -276,39 +312,147 @@
     
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (textField == self.majorTextField) {
+ 
+        [self deleteMajor];
+        
+
+        
+        
+        int thisMajor = [self.majorTextField.text intValue];
+        
+        _major = thisMajor;
+        
+        NSNumber *majorNumber = [NSNumber numberWithInt:_major];
+        
+        NSManagedObject *major = [NSEntityDescription insertNewObjectForEntityForName:@"DATA" inManagedObjectContext:context];
+        [major setValue:majorNumber forKey:@"major"];
+        
+        [self saveContext];                                          // Save the object to persistent store
+        
+        
+        
+        NSLog(@"Major %@",self.majorTextField.text);
+        
+        
+        [self.majorTextField resignFirstResponder];
+        return YES;
+        
+    } else {
+      
+        [self deleteMinor];
+        
+        
+        int thisMinor = [self.minorTextField.text intValue];
+        
+        _minor = thisMinor;
+        
+        NSNumber *minorNumber = [NSNumber numberWithInt:_minor];
+        
+        
+        NSManagedObject *minor = [NSEntityDescription insertNewObjectForEntityForName:@"DATA" inManagedObjectContext:context];
+        [minor setValue:minorNumber forKey:@"minor"];
+        
+        [self saveContext];
+        
+        
+        NSLog(@"Minor %@",self.minorTextField.text);
+        
+        [self.minorTextField resignFirstResponder];
+        return YES;
+        
+    }
+    
+}
+
+-(void)deleteMajor {
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
+    
+    
+    request.propertiesToFetch = @[@"major",@"minor"];
+    request.resultType = NSDictionaryResultType;
+    NSArray *array = [context executeFetchRequest:request error:nil];
+    
+   // NSArray *array = [context executeFetchRequest:request error:nil];
+    
+    for (NSManagedObject *major in array) {
+        [context deleteObject:major];
+    }
+    [self saveContext];
+    
+    NSLog(@"major deleted");
+}
+
+-(void)deleteMinor {
+    
+    //make a change
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
+    
+    request.propertiesToFetch = @[@"major",@"minor"];
+    request.resultType = NSDictionaryResultType;
+    NSArray *array = [context executeFetchRequest:request error:nil];
+    
+    
+    for (NSManagedObject *minor in array) {
+        [context deleteObject:minor];
+    }
+    [self saveContext];
+    
+    NSLog(@"minor deleted");
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSCharacterSet *nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    return ([string stringByTrimmingCharactersInSet:nonNumberSet].length > 0) || [string isEqualToString:@""];
+}
+
+
 
 //////////////////////////////////////////////////
 // Button to start email with UUID
 //////////////////////////////////////////////////
 
-- (IBAction)actionEmailComposer {
-    
-    if ([MFMailComposeViewController canSendMail]) {
-        
-        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
-        mailViewController.mailComposeDelegate = self;
-        [mailViewController setSubject:@"Beacon UUID"];
-        NSString *emailBody = [NSString stringWithFormat:@"%@",_uuidLabel.text];
-        [mailViewController setMessageBody:emailBody isHTML:NO];
-        
-        [self presentViewController:mailViewController animated:YES completion:nil];
-    }
-    
-    else {
-        
-        NSLog(@"Device is unable to send email in its current state.");
-        
-    }
-    
-}
-
-
--(void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:  (NSError*)error
-{
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
+//- (IBAction)actionEmailComposer {
+//    
+//    if ([MFMailComposeViewController canSendMail]) {
+//        
+//        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+//        mailViewController.mailComposeDelegate = self;
+//        [mailViewController setSubject:@"Beacon UUID"];
+//        NSString *emailBody = [NSString stringWithFormat:@"%@",_uuidLabel.text];
+//        [mailViewController setMessageBody:emailBody isHTML:NO];
+//        
+//        [self presentViewController:mailViewController animated:YES completion:nil];
+//    }
+//    
+//    else {
+//        
+//        NSLog(@"Device is unable to send email in its current state.");
+//        
+//    }
+//    
+//}
+//
+//
+//-(void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:  (NSError*)error
+//{
+//    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    
+//}
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
@@ -352,7 +496,7 @@
     
     NSString *UUID = [[NSUUID UUID] UUIDString];                // Generate a random UUID
     _uuid = [[NSUUID alloc] initWithUUIDString:UUID];           // Store the generated UUID
-    _uuidLabel.text = [NSString stringWithFormat:@"%@",UUID];
+    //_uuidLabel.text = [NSString stringWithFormat:@"%@",UUID];
     
     NSManagedObject *newUUID = [NSEntityDescription insertNewObjectForEntityForName:@"UUID" inManagedObjectContext:context];
     [newUUID setValue:UUID forKey:@"uuid_string"];

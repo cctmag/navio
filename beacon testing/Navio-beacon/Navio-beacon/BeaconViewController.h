@@ -12,6 +12,6 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
-@interface BeaconViewController : UIViewController <MFMailComposeViewControllerDelegate, CBPeripheralManagerDelegate, UIAlertViewDelegate>
+@interface BeaconViewController : UIViewController <MFMailComposeViewControllerDelegate, CBPeripheralManagerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 
 @end
