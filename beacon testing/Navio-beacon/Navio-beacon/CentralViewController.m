@@ -160,7 +160,9 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+    NSLog(@"this is the beacon count: %lu", (unsigned long)_beacons.count);
     return _beacons.count;
+
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
