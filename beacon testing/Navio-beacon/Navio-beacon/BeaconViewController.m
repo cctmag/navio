@@ -11,7 +11,6 @@
 @interface BeaconViewController ()
 
 - (IBAction)beaconSwitch:(id)sender;
-//@property (weak, nonatomic) IBOutlet UILabel *uuidLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beaconSwitchLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *beaconSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *majorTextField;
@@ -92,21 +91,21 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:DATA inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
-    [request setFetchLimit:2];
+    [request setFetchLimit:1];
     NSError *error = nil;
     NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (!results) {
         NSLog(@"Fetch error: %@", error);
         abort();
     }
-    if ([results count] < 2) {
+    if ([results count] < 1) {
         
         NSLog(@"No DATA");
         return NO;
 
     } else {
         
-        NSLog(@"%@ %@",[results objectAtIndex:0],[results objectAtIndex:1]);
+        NSLog(@"%@",[results objectAtIndex:0]);
         return YES;
         
     }
@@ -140,11 +139,10 @@
     
     _enabled = NO;
     
-    
     NSManagedObjectContext *context = [self managedObjectContext];
     
     ////////////////////////////////////
-    //Fetch properties if they already exists in persistent store.
+    //Fetch properties if they already exists in persistent store. Alert user if they don't.
     ////////////////////////////////////
     
     if ([self coreDataHasEntriesForEntityName:@"DATA"] == YES) {
@@ -153,17 +151,19 @@
         request.propertiesToFetch = @[@"major",@"minor"];
         request.resultType = NSDictionaryResultType;
         NSArray *array = [context executeFetchRequest:request error:nil];
-        NSString *major = [array valueForKey:@"major"];
-        NSString *minor = [array valueForKey:@"minor"];
-    
-        NSLog(@"major %@ minor %@",major,minor);
-
-    
-        //idString = [NSString stringWithString:UUID];
-
-        //_uuidLabel.text = [NSString stringWithFormat:@"%@",idString];
         
-        //NSLog(@"Fetched %@",idString);
+        NSLog(@"%@",array);
+        
+        NSArray *major = [array valueForKey:@"major"];
+        NSArray *minor = [array valueForKey:@"minor"];
+
+        _major = [[major objectAtIndex:0]intValue];
+        _minor = [[minor objectAtIndex:0]intValue];
+     
+        NSLog(@"major %d, minor %d",_major,_minor);
+
+        self.majorTextField.text = [NSString stringWithFormat:@"%d",_major];
+        self.minorTextField.text = [NSString stringWithFormat:@"%d",_minor];
         
     } else {
         
@@ -175,23 +175,7 @@
         [alert show];
         
     }
-        
-        ////////////////////////////////////
-        //Generate a new UUID and save it to persistent store with Core Data
-        ////////////////////////////////////
-        
-//        idString = [[NSUUID UUID] UUIDString];                // Generate a random UUID
-//        //_uuid = [[NSUUID alloc] initWithUUIDString:UUID];           // Store the generated UUID
-//        _uuidLabel.text = idString;
-//        
-//        NSManagedObject *newUUID = [NSEntityDescription insertNewObjectForEntityForName:@"UUID" inManagedObjectContext:context];
-//        [newUUID setValue:idString forKey:@"uuid_string"];
-//        
-//        [self saveContext];                                          // Save the object to persistent store
-//
-//        NSLog(@"Generated %@",idString);
     
-    //}
     
     ////////////////////////////////////
     //Check if peripheral manager is active set up initial state.
@@ -205,8 +189,9 @@
         
     } else {
     
-        _enabled = NO;
+        [self.beaconSwitch setOn:NO animated:NO];
         self.beaconSwitchLabel.text = [NSString stringWithFormat:@"Beacon OFF"];
+        _enabled = NO;
 
     }
     
@@ -253,31 +238,19 @@
                 NSDictionary *peripheralData = nil;
                 if(_uuid && _major && _minor)
                 {
-                    
                     CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major minor:_minor identifier:identifier];
                     peripheralData = [region peripheralDataWithMeasuredPower:nil];
                     
                 } else {
                     
-                    nil;
-                    //Make pop up and require major and minor
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Identifiers Needed"
+                                                                    message:@"You must select a Major and Minor identifier."
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
                     
                 }
-                
-                
-//                else if(_uuid && _major)
-//                {
-//                    
-//                    
-//                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid major:_major  identifier:identifier];
-//                    peripheralData = [region peripheralDataWithMeasuredPower:nil];
-//                }
-//                else if(_uuid)
-//                {
-//
-//                    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_uuid identifier:identifier];
-//                    peripheralData = [region peripheralDataWithMeasuredPower:nil];
-//                }
                 
                 //////////////////////////////////////////////////
                 // Now we advertise.
@@ -314,103 +287,92 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
     if (textField == self.majorTextField) {
- 
-        [self deleteMajor];
-
-        
         
         int thisMajor = [self.majorTextField.text intValue];
         
         _major = thisMajor;
         
-        NSNumber *majorNumber = [NSNumber numberWithInt:_major];
-        
-        NSManagedObject *major = [NSEntityDescription insertNewObjectForEntityForName:@"DATA" inManagedObjectContext:context];
-        [major setValue:majorNumber forKey:@"major"];
-        
-        [self saveContext];                                          // Save the object to persistent store
-        
-        
-        
-        NSLog(@"Major %@",self.majorTextField.text);
-        
+        NSLog(@"Major %d",_major);
         
         [self.majorTextField resignFirstResponder];
-        return YES;
         
     } else {
-      
-        [self deleteMinor];
-        
         
         int thisMinor = [self.minorTextField.text intValue];
         
         _minor = thisMinor;
         
-        NSNumber *minorNumber = [NSNumber numberWithInt:_minor];
-        
-        
-        NSManagedObject *minor = [NSEntityDescription insertNewObjectForEntityForName:@"DATA" inManagedObjectContext:context];
-        [minor setValue:minorNumber forKey:@"minor"];
-        
-        [self saveContext];
-        
-        
-        NSLog(@"Minor %@",self.minorTextField.text);
+        NSLog(@"Minor %d",_minor);
         
         [self.minorTextField resignFirstResponder];
-        return YES;
         
     }
     
-}
-
--(void)deleteMajor {
-    
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
-//    
-//    
-//    request.propertiesToFetch = @[@"major",@"minor"];
-//    request.resultType = NSDictionaryResultType;
-//    NSArray *array = [context executeFetchRequest:request error:nil];
-    
-    NSArray *array = [context executeFetchRequest:request error:nil];
-    
-    for (NSManagedObject *major in array) {
-        [context deleteObject:major];
-    }
-    [self saveContext];
-    
-    NSLog(@"major deleted");
-}
+    if ([self coreDataHasEntriesForEntityName:@"DATA"] == YES) {
 
--(void)deleteMinor {
-    
-    //make a change
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
-//    
-//    request.propertiesToFetch = @[@"major",@"minor"];
-//    request.resultType = NSDictionaryResultType;
-    NSArray *array = [context executeFetchRequest:request error:nil];
-    
-    
-    for (NSManagedObject *minor in array) {
-        [context deleteObject:minor];
-    }
-    [self saveContext];
-    
-    NSLog(@"minor deleted");
-}
+        if (textField == self.majorTextField) {
+        
+            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DATA"];
 
+            NSArray *array = [context executeFetchRequest:request error:nil];
+    
+            for (NSManagedObject *DATA in array) {
+            [context deleteObject:DATA];
+            }
+        
+            [self saveContext];
+    
+            NSLog(@"Old DATA Deleted");
+        }
+    }
+    
+    NSNumber *minor = [NSNumber numberWithInt:_minor];
+    NSNumber *major = [NSNumber numberWithInt:_major];
+    
+    NSManagedObject *DATA = [NSEntityDescription insertNewObjectForEntityForName:@"DATA" inManagedObjectContext:context];
+    
+    [DATA setValue:minor forKey:@"minor"];
+    [DATA setValue:major forKey:@"major"];
+    
+    NSLog(@"%@",DATA);
+    
+    [self saveContext];
+
+    NSLog(@"saved");
+    
+    return YES;
+}
+    
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    
+    
+    if (textField == self.majorTextField) {
+
+        int thisMajor = [self.majorTextField.text intValue];
+        
+        _major = thisMajor;
+        
+        NSLog(@"Major %d",_major);
+        
+        [self.majorTextField resignFirstResponder];
+        
+    } else {
+      
+        int thisMinor = [self.minorTextField.text intValue];
+        
+        _minor = thisMinor;
+           
+        NSLog(@"Minor %d",_minor);
+        
+        [self.minorTextField resignFirstResponder];
+        
+    }
+    
+    return YES;
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -456,55 +418,55 @@
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 
-#pragma mark Other Methods
+//#pragma mark Other Methods
 
 ////////////////////////////////////////////////////////////////////////
 /////////////      INCLUDED FOR TESTING PURPOSES.
 /////////////  This will allow a tester to generate a new UUID and store it in place of the old one.
 ////////////////////////////////////////////////////////////////////////
-
-- (IBAction)pressedUUID:(id)sender {
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    ////////////////////////////////////
-    // This makes sure everything is off before generating a new UUID
-    ////////////////////////////////////
-    
-    [self.beaconSwitch setOn:NO animated:YES];
-    self.beaconSwitchLabel.text = [NSString stringWithFormat:@"Beacon OFF"];
-    [_peripheralManager stopAdvertising];
-    
-    ////////////////////////////////////
-    // Fetch and delete the existing UUID
-    ////////////////////////////////////
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"UUID"];
-    NSArray *array = [context executeFetchRequest:request error:nil];
-    
-    for (NSManagedObject *UUID in array) {
-        [context deleteObject:UUID];
-    }
-    [self saveContext];
-    
-    NSLog(@"Old UUID Deleted");
-    
-    ////////////////////////////////////
-    // Generate a new UUID and save it to persistent store
-    ////////////////////////////////////
-    
-    NSString *UUID = [[NSUUID UUID] UUIDString];                // Generate a random UUID
-    _uuid = [[NSUUID alloc] initWithUUIDString:UUID];           // Store the generated UUID
-    //_uuidLabel.text = [NSString stringWithFormat:@"%@",UUID];
-    
-    NSManagedObject *newUUID = [NSEntityDescription insertNewObjectForEntityForName:@"UUID" inManagedObjectContext:context];
-    [newUUID setValue:UUID forKey:@"uuid_string"];
-    
-    [self saveContext];                                          // Save the object to persistent store
-    
-    NSLog(@"Generated %@",UUID);
-    
-}
+//
+//- (IBAction)pressedUUID:(id)sender {
+//    
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    ////////////////////////////////////
+//    // This makes sure everything is off before generating a new UUID
+//    ////////////////////////////////////
+//    
+//    [self.beaconSwitch setOn:NO animated:YES];
+//    self.beaconSwitchLabel.text = [NSString stringWithFormat:@"Beacon OFF"];
+//    [_peripheralManager stopAdvertising];
+//    
+//    ////////////////////////////////////
+//    // Fetch and delete the existing UUID
+//    ////////////////////////////////////
+//    
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"UUID"];
+//    NSArray *array = [context executeFetchRequest:request error:nil];
+//    
+//    for (NSManagedObject *UUID in array) {
+//        [context deleteObject:UUID];
+//    }
+//    [self saveContext];
+//    
+//    NSLog(@"Old UUID Deleted");
+//    
+//    ////////////////////////////////////
+//    // Generate a new UUID and save it to persistent store
+//    ////////////////////////////////////
+//    
+//    NSString *UUID = [[NSUUID UUID] UUIDString];                // Generate a random UUID
+//    _uuid = [[NSUUID alloc] initWithUUIDString:UUID];           // Store the generated UUID
+//    //_uuidLabel.text = [NSString stringWithFormat:@"%@",UUID];
+//    
+//    NSManagedObject *newUUID = [NSEntityDescription insertNewObjectForEntityForName:@"UUID" inManagedObjectContext:context];
+//    [newUUID setValue:UUID forKey:@"uuid_string"];
+//    
+//    [self saveContext];                                          // Save the object to persistent store
+//    
+//    NSLog(@"Generated %@",UUID);
+//    
+//}
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////

@@ -158,6 +158,8 @@
 		63AFE76D17EE468100D61ED4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63DE58FA17EE735300484C5F /* LSU MAG Graphic.jpg */,
+				63DE58F817EE6FAC00484C5F /* LSU MAG graphic 640x1010.png */,
 				63AFE76E17EE468100D61ED4 /* Navio-beacon-Info.plist */,
 				63AFE76F17EE468100D61ED4 /* InfoPlist.strings */,
 				63AFE77217EE468100D61ED4 /* main.m */,
@@ -187,8 +189,6 @@
 		63DE58F417EE506500484C5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				63DE58FA17EE735300484C5F /* LSU MAG Graphic.jpg */,
-				63DE58F817EE6FAC00484C5F /* LSU MAG graphic 640x1010.png */,
 				63AFE77E17EE468100D61ED4 /* NVViewController.h */,
 				63AFE77F17EE468100D61ED4 /* NVViewController.m */,
 				63DE58F117EE505200484C5F /* BeaconViewController.h */,
