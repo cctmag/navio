@@ -55,7 +55,7 @@ GMSMapView *mapView_;
     GMSCoordinateBounds *overlayBounds = [[GMSCoordinateBounds alloc] initWithCoordinate:southWest
                                                                               coordinate:northEast];
     
-    UIImage *icon = [UIImage imageNamed:@"DMC2nfloor.png"];
+    UIImage *icon = [UIImage imageNamed:@"DMC2ndfloor.png"];
     GMSGroundOverlay *overlay =
     [GMSGroundOverlay groundOverlayWithBounds:overlayBounds icon:icon];
     overlay.bearing = 6.4;
