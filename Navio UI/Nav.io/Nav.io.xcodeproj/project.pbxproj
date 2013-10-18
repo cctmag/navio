@@ -11,6 +11,7 @@
 		3761AB7217ED2AE800F64EF6 /* DMC1stfloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3761AB7117ED2AE800F64EF6 /* DMC1stfloor.png */; };
 		3761AB7617ED2F4A00F64EF6 /* MAGMapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3761AB7517ED2F4A00F64EF6 /* MAGMapOverlay.m */; };
 		3761AB7917ED316400F64EF6 /* MAGMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3761AB7817ED316400F64EF6 /* MAGMapOverlayView.m */; };
+		376E5536180762AF00DEFD98 /* MAGBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 376E5535180762AF00DEFD98 /* MAGBeacon.m */; };
 		377076F917FF964800F71B87 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377076F817FF964800F71B87 /* GoogleMaps.framework */; };
 		377076FB17FF968400F71B87 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 377076FA17FF968400F71B87 /* GoogleMaps.bundle */; };
 		377076FD17FF96BA00F71B87 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377076FC17FF96BA00F71B87 /* AVFoundation.framework */; };
@@ -59,6 +60,8 @@
 		3761AB7517ED2F4A00F64EF6 /* MAGMapOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGMapOverlay.m; sourceTree = "<group>"; };
 		3761AB7717ED316400F64EF6 /* MAGMapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGMapOverlayView.h; sourceTree = "<group>"; };
 		3761AB7817ED316400F64EF6 /* MAGMapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGMapOverlayView.m; sourceTree = "<group>"; };
+		376E5534180762AF00DEFD98 /* MAGBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGBeacon.h; sourceTree = "<group>"; };
+		376E5535180762AF00DEFD98 /* MAGBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGBeacon.m; sourceTree = "<group>"; };
 		377076F817FF964800F71B87 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		377076FA17FF968400F71B87 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		377076FC17FF96BA00F71B87 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -202,6 +205,8 @@
 				37E57DEA17ED16C60090A957 /* Images.xcassets */,
 				3761AB7317ED2AF300F64EF6 /* Images */,
 				37E57DD617ED16C60090A957 /* Supporting Files */,
+				376E5534180762AF00DEFD98 /* MAGBeacon.h */,
+				376E5535180762AF00DEFD98 /* MAGBeacon.m */,
 			);
 			path = Nav.io;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3761AB7917ED316400F64EF6 /* MAGMapOverlayView.m in Sources */,
+				376E5536180762AF00DEFD98 /* MAGBeacon.m in Sources */,
 				37E57DE017ED16C60090A957 /* MAGAppDelegate.m in Sources */,
 				37E57DE917ED16C60090A957 /* MAGViewController.m in Sources */,
 				37E57DDC17ED16C60090A957 /* main.m in Sources */,
