@@ -31,6 +31,8 @@
 		63DE58FB17EE735300484C5F /* LSU MAG Graphic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63DE58FA17EE735300484C5F /* LSU MAG Graphic.jpg */; };
 		63DE58FE17EE838200484C5F /* StoredData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63DE58FC17EE838200484C5F /* StoredData.xcdatamodeld */; };
 		63DE594117EE8ACE00484C5F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DE594017EE8ACE00484C5F /* CoreData.framework */; };
+		63F4A91E1811E24500FF8F8B /* TriangulationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F4A91D1811E24500FF8F8B /* TriangulationPoint.m */; };
+		63F4A9211811E2DA00FF8F8B /* TriangluationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F4A9201811E2DA00FF8F8B /* TriangluationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,10 @@
 		63DE58FD17EE838200484C5F /* StoredUUID.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoredUUID.xcdatamodel; sourceTree = "<group>"; };
 		63DE594017EE8ACE00484C5F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		63DE594217EE9BD700484C5F /* StoredUUID 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "StoredUUID 2.xcdatamodel"; sourceTree = "<group>"; };
+		63F4A91C1811E24500FF8F8B /* TriangulationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangulationPoint.h; sourceTree = "<group>"; };
+		63F4A91D1811E24500FF8F8B /* TriangulationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangulationPoint.m; sourceTree = "<group>"; };
+		63F4A91F1811E2DA00FF8F8B /* TriangluationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangluationViewController.h; sourceTree = "<group>"; };
+		63F4A9201811E2DA00FF8F8B /* TriangluationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangluationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 				63AFE77817EE468100D61ED4 /* Main_iPhone.storyboard */,
 				63AFE77B17EE468100D61ED4 /* Main_iPad.storyboard */,
 				63DE58FC17EE838200484C5F /* StoredData.xcdatamodeld */,
+				63F4A9221811E2EB00FF8F8B /* Classes */,
 				63DE58F417EE506500484C5F /* ViewControllers */,
 				63AFE78117EE468100D61ED4 /* Images.xcassets */,
 				63AFE76D17EE468100D61ED4 /* Supporting Files */,
@@ -195,8 +202,19 @@
 				63DE58F217EE505200484C5F /* BeaconViewController.m */,
 				6395192F17FA47F100631AEA /* CentralViewController.h */,
 				6395193017FA47F100631AEA /* CentralViewController.m */,
+				63F4A91F1811E2DA00FF8F8B /* TriangluationViewController.h */,
+				63F4A9201811E2DA00FF8F8B /* TriangluationViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		63F4A9221811E2EB00FF8F8B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				63F4A91C1811E24500FF8F8B /* TriangulationPoint.h */,
+				63F4A91D1811E24500FF8F8B /* TriangulationPoint.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +266,7 @@
 				ORGANIZATIONNAME = "LSU|MAG";
 				TargetAttributes = {
 					63AFE76217EE468100D61ED4 = {
-						DevelopmentTeam = WUJS7UYBT4;
+						DevelopmentTeam = Q5R36PBSB5;
 					};
 					63AFE78617EE468100D61ED4 = {
 						TestTargetID = 63AFE76217EE468100D61ED4;
@@ -303,11 +321,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F4A9211811E2DA00FF8F8B /* TriangluationViewController.m in Sources */,
 				63DE58F317EE505200484C5F /* BeaconViewController.m in Sources */,
 				63AFE78017EE468100D61ED4 /* NVViewController.m in Sources */,
 				6395193117FA47F100631AEA /* CentralViewController.m in Sources */,
 				63AFE77717EE468100D61ED4 /* NVAppDelegate.m in Sources */,
 				63DE58FE17EE838200484C5F /* StoredData.xcdatamodeld in Sources */,
+				63F4A91E1811E24500FF8F8B /* TriangulationPoint.m in Sources */,
 				63AFE77317EE468100D61ED4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,7 +471,7 @@
 				GCC_PREFIX_HEADER = "Navio-beacon/Navio-beacon-Prefix.pch";
 				INFOPLIST_FILE = "Navio-beacon/Navio-beacon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "AF0E80DE-76E0-4673-B0BF-2850DDFF63A1";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -468,7 +488,7 @@
 				GCC_PREFIX_HEADER = "Navio-beacon/Navio-beacon-Prefix.pch";
 				INFOPLIST_FILE = "Navio-beacon/Navio-beacon-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "AF0E80DE-76E0-4673-B0BF-2850DDFF63A1";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

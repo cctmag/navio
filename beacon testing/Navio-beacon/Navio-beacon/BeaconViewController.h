@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
-#import <MessageUI/MessageUI.h>
-#import <MessageUI/MFMailComposeViewController.h>
+//#import <MessageUI/MessageUI.h>
+//#import <MessageUI/MFMailComposeViewController.h>
 
-@interface BeaconViewController : UIViewController <MFMailComposeViewControllerDelegate, CBPeripheralManagerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
+//MFMailComposeViewControllerDelegate,
+
+@interface BeaconViewController : UIViewController <CBPeripheralManagerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 
 @end

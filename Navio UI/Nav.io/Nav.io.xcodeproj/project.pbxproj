@@ -11,8 +11,6 @@
 		3761AB7217ED2AE800F64EF6 /* DMC1stfloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3761AB7117ED2AE800F64EF6 /* DMC1stfloor.png */; };
 		3761AB7617ED2F4A00F64EF6 /* MAGMapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3761AB7517ED2F4A00F64EF6 /* MAGMapOverlay.m */; };
 		3761AB7917ED316400F64EF6 /* MAGMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3761AB7817ED316400F64EF6 /* MAGMapOverlayView.m */; };
-		377076F917FF964800F71B87 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377076F817FF964800F71B87 /* GoogleMaps.framework */; };
-		377076FB17FF968400F71B87 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 377076FA17FF968400F71B87 /* GoogleMaps.bundle */; };
 		377076FD17FF96BA00F71B87 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377076FC17FF96BA00F71B87 /* AVFoundation.framework */; };
 		377076FF17FF96C200F71B87 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377076FE17FF96C200F71B87 /* CoreData.framework */; };
 		3770770117FF96C900F71B87 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3770770017FF96C900F71B87 /* CoreLocation.framework */; };
@@ -40,6 +38,8 @@
 		37E57DF417ED16C60090A957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DD317ED16C60090A957 /* UIKit.framework */; };
 		37E57DFC17ED16C60090A957 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37E57DFA17ED16C60090A957 /* InfoPlist.strings */; };
 		37E57DFE17ED16C60090A957 /* Nav_ioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57DFD17ED16C60090A957 /* Nav_ioTests.m */; };
+		63F4A9151811DD1900FF8F8B /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F4A9141811DD1900FF8F8B /* GoogleMaps.framework */; };
+		63F4A9171811DD4500FF8F8B /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 63F4A9161811DD4500FF8F8B /* GoogleMaps.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +59,6 @@
 		3761AB7517ED2F4A00F64EF6 /* MAGMapOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGMapOverlay.m; sourceTree = "<group>"; };
 		3761AB7717ED316400F64EF6 /* MAGMapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGMapOverlayView.h; sourceTree = "<group>"; };
 		3761AB7817ED316400F64EF6 /* MAGMapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGMapOverlayView.m; sourceTree = "<group>"; };
-		377076F817FF964800F71B87 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		377076FA17FF968400F71B87 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		377076FC17FF96BA00F71B87 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		377076FE17FF96C200F71B87 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3770770017FF96C900F71B87 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -93,6 +91,8 @@
 		37E57DF917ED16C60090A957 /* Nav.ioTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nav.ioTests-Info.plist"; sourceTree = "<group>"; };
 		37E57DFB17ED16C60090A957 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		37E57DFD17ED16C60090A957 /* Nav_ioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Nav_ioTests.m; sourceTree = "<group>"; };
+		63F4A9141811DD1900FF8F8B /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		63F4A9161811DD4500FF8F8B /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +114,8 @@
 				377076FD17FF96BA00F71B87 /* AVFoundation.framework in Frameworks */,
 				3761AB7017ED21A800F64EF6 /* MapKit.framework in Frameworks */,
 				37E57DD217ED16C60090A957 /* CoreGraphics.framework in Frameworks */,
+				63F4A9151811DD1900FF8F8B /* GoogleMaps.framework in Frameworks */,
 				37E57DD417ED16C60090A957 /* UIKit.framework in Frameworks */,
-				377076F917FF964800F71B87 /* GoogleMaps.framework in Frameworks */,
 				37E57DD017ED16C60090A957 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,14 +169,14 @@
 				3770770C17FF96F900F71B87 /* libz.dylib */,
 				3770770A17FF96F200F71B87 /* libicucore.dylib */,
 				3770770817FF96EB00F71B87 /* libc++.dylib */,
+				63F4A9161811DD4500FF8F8B /* GoogleMaps.bundle */,
+				63F4A9141811DD1900FF8F8B /* GoogleMaps.framework */,
 				3770770617FF96E200F71B87 /* ImageIO.framework */,
 				3770770417FF96DC00F71B87 /* GLKit.framework */,
 				3770770217FF96D200F71B87 /* CoreText.framework */,
 				3770770017FF96C900F71B87 /* CoreLocation.framework */,
 				377076FE17FF96C200F71B87 /* CoreData.framework */,
 				377076FC17FF96BA00F71B87 /* AVFoundation.framework */,
-				377076FA17FF968400F71B87 /* GoogleMaps.bundle */,
-				377076F817FF964800F71B87 /* GoogleMaps.framework */,
 				3761AB6F17ED21A800F64EF6 /* MapKit.framework */,
 				37E57DCF17ED16C60090A957 /* Foundation.framework */,
 				37E57DD117ED16C60090A957 /* CoreGraphics.framework */,
@@ -315,7 +315,7 @@
 				37E57DE617ED16C60090A957 /* Main_iPad.storyboard in Resources */,
 				37E57DEB17ED16C60090A957 /* Images.xcassets in Resources */,
 				37E57DE317ED16C60090A957 /* Main_iPhone.storyboard in Resources */,
-				377076FB17FF968400F71B87 /* GoogleMaps.bundle in Resources */,
+				63F4A9171811DD4500FF8F8B /* GoogleMaps.bundle in Resources */,
 				3761AB7217ED2AE800F64EF6 /* DMC1stfloor.png in Resources */,
 				37E57DDA17ED16C60090A957 /* InfoPlist.strings in Resources */,
 			);
@@ -480,6 +480,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/allison/Documents/_University/|MAG|/NAVio/Navio\\ UI/Nav.io",
+					"/Users/dsholmes/Documents/XCode\\ Projects/GitHub\\ Repos/navio/Navio\\ UI/Nav.io",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nav.io/Nav.io-Prefix.pch";
@@ -498,6 +499,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/allison/Documents/_University/|MAG|/NAVio/Navio\\ UI/Nav.io",
+					"/Users/dsholmes/Documents/XCode\\ Projects/GitHub\\ Repos/navio/Navio\\ UI/Nav.io",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nav.io/Nav.io-Prefix.pch";
