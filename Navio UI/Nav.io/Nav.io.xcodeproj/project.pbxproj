@@ -27,6 +27,7 @@
 		37D54A291811F2A5000B9BD1 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37D54A281811F2A5000B9BD1 /* GoogleMaps.bundle */; };
 		37D54A2C1811F60E000B9BD1 /* DMC1stfloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D54A2A1811F60E000B9BD1 /* DMC1stfloor.png */; };
 		37D54A2D1811F60E000B9BD1 /* DMC2nfloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D54A2B1811F60E000B9BD1 /* DMC2nfloor.png */; };
+		37D54A7118120D17000B9BD1 /* navio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37D54A6F18120D17000B9BD1 /* navio.xcdatamodeld */; };
 		37E57DD017ED16C60090A957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DCF17ED16C60090A957 /* Foundation.framework */; };
 		37E57DD217ED16C60090A957 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DD117ED16C60090A957 /* CoreGraphics.framework */; };
 		37E57DD417ED16C60090A957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E57DD317ED16C60090A957 /* UIKit.framework */; };
@@ -78,6 +79,7 @@
 		37D54A281811F2A5000B9BD1 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		37D54A2A1811F60E000B9BD1 /* DMC1stfloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DMC1stfloor.png; sourceTree = "<group>"; };
 		37D54A2B1811F60E000B9BD1 /* DMC2nfloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DMC2nfloor.png; sourceTree = "<group>"; };
+		37D54A7018120D17000B9BD1 /* navio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = navio.xcdatamodel; sourceTree = "<group>"; };
 		37E57DCC17ED16C60090A957 /* Nav.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nav.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E57DCF17ED16C60090A957 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37E57DD117ED16C60090A957 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -210,6 +212,7 @@
 				37E57DD617ED16C60090A957 /* Supporting Files */,
 				376E5534180762AF00DEFD98 /* MAGBeacon.h */,
 				376E5535180762AF00DEFD98 /* MAGBeacon.m */,
+				37D54A6F18120D17000B9BD1 /* navio.xcdatamodeld */,
 			);
 			path = Nav.io;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			files = (
 				3761AB7917ED316400F64EF6 /* MAGMapOverlayView.m in Sources */,
 				376E5536180762AF00DEFD98 /* MAGBeacon.m in Sources */,
+				37D54A7118120D17000B9BD1 /* navio.xcdatamodeld in Sources */,
 				37E57DE017ED16C60090A957 /* MAGAppDelegate.m in Sources */,
 				37E57DE917ED16C60090A957 /* MAGViewController.m in Sources */,
 				37E57DDC17ED16C60090A957 /* main.m in Sources */,
@@ -593,6 +597,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		37D54A6F18120D17000B9BD1 /* navio.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37D54A7018120D17000B9BD1 /* navio.xcdatamodel */,
+			);
+			currentVersion = 37D54A7018120D17000B9BD1 /* navio.xcdatamodel */;
+			path = navio.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 37E57DC417ED16C60090A957 /* Project object */;
 }
