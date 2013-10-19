@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.bluetoothle"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="18" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    
+    <application
+       
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.bluetoothle.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:enabled="true"
+            android:exported="true"
+            android:isolatedProcess="false"
+            android:label="iBeacon"
+            android:name="com.radiusnetworks.ibeacon.service.IBeaconService">
+        </service>    
+        <service android:enabled="true" 
+            android:name="com.radiusnetworks.ibeacon.IBeaconIntentProcessor">
+            <meta-data android:name="rangeNotifier" android:value="com.messageradius.scavengerhunt.RangeHandler" />
+            <intent-filter 
+               android:priority="1" >
+                <action android:name="com.example.bluetoothle.DID_RANGING" />
+                <action android:name="com.example.bluetoothle.DID_MONITORING" />
+            </intent-filter>
+        </service>  
+    </application>
+
+</manifest>
