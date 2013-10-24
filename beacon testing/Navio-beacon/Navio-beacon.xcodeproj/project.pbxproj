@@ -31,7 +31,6 @@
 		63DE58FB17EE735300484C5F /* LSU MAG Graphic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63DE58FA17EE735300484C5F /* LSU MAG Graphic.jpg */; };
 		63DE58FE17EE838200484C5F /* StoredData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63DE58FC17EE838200484C5F /* StoredData.xcdatamodeld */; };
 		63DE594117EE8ACE00484C5F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DE594017EE8ACE00484C5F /* CoreData.framework */; };
-		63F4A91E1811E24500FF8F8B /* TriangulationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F4A91D1811E24500FF8F8B /* TriangulationPoint.m */; };
 		63F4A9211811E2DA00FF8F8B /* TriangluationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F4A9201811E2DA00FF8F8B /* TriangluationViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -78,8 +77,6 @@
 		63DE58FD17EE838200484C5F /* StoredUUID.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoredUUID.xcdatamodel; sourceTree = "<group>"; };
 		63DE594017EE8ACE00484C5F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		63DE594217EE9BD700484C5F /* StoredUUID 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "StoredUUID 2.xcdatamodel"; sourceTree = "<group>"; };
-		63F4A91C1811E24500FF8F8B /* TriangulationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangulationPoint.h; sourceTree = "<group>"; };
-		63F4A91D1811E24500FF8F8B /* TriangulationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangulationPoint.m; sourceTree = "<group>"; };
 		63F4A91F1811E2DA00FF8F8B /* TriangluationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangluationViewController.h; sourceTree = "<group>"; };
 		63F4A9201811E2DA00FF8F8B /* TriangluationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangluationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,7 +151,6 @@
 				63AFE77817EE468100D61ED4 /* Main_iPhone.storyboard */,
 				63AFE77B17EE468100D61ED4 /* Main_iPad.storyboard */,
 				63DE58FC17EE838200484C5F /* StoredData.xcdatamodeld */,
-				63F4A9221811E2EB00FF8F8B /* Classes */,
 				63DE58F417EE506500484C5F /* ViewControllers */,
 				63AFE78117EE468100D61ED4 /* Images.xcassets */,
 				63AFE76D17EE468100D61ED4 /* Supporting Files */,
@@ -206,15 +202,6 @@
 				63F4A9201811E2DA00FF8F8B /* TriangluationViewController.m */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		63F4A9221811E2EB00FF8F8B /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				63F4A91C1811E24500FF8F8B /* TriangulationPoint.h */,
-				63F4A91D1811E24500FF8F8B /* TriangulationPoint.m */,
-			);
-			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,7 +314,6 @@
 				6395193117FA47F100631AEA /* CentralViewController.m in Sources */,
 				63AFE77717EE468100D61ED4 /* NVAppDelegate.m in Sources */,
 				63DE58FE17EE838200484C5F /* StoredData.xcdatamodeld in Sources */,
-				63F4A91E1811E24500FF8F8B /* TriangulationPoint.m in Sources */,
 				63AFE77317EE468100D61ED4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

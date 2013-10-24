@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface TriangluationViewController : UIViewController
-
+@interface TriangluationViewController : UIViewController <CLLocationManagerDelegate>
 @end
