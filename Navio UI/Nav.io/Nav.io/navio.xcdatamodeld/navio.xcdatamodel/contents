@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Areas" syncable="YES">
+    <entity name="Areas" representedClassName="Areas" syncable="YES">
         <attribute name="floor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,47 +11,49 @@
         <relationship name="polygon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Polygons" inverseName="area" inverseEntity="Polygons" syncable="YES"/>
         <relationship name="subAreas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubAreas" inverseName="area" inverseEntity="SubAreas" syncable="YES"/>
     </entity>
-    <entity name="Beacons" syncable="YES">
+    <entity name="Beacons" representedClassName="Beacons" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="location" maxCount="1" deletionRule="Nullify" destinationEntity="Locations" inverseName="beacon" inverseEntity="Locations" syncable="YES"/>
         <relationship name="subArea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubAreas" inverseName="beacons" inverseEntity="SubAreas" syncable="YES"/>
     </entity>
-    <entity name="Buildings" syncable="YES">
+    <entity name="Buildings" representedClassName="Buildings" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="areas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Areas" inverseName="building" inverseEntity="Areas" syncable="YES"/>
     </entity>
-    <entity name="Categories" syncable="YES">
+    <entity name="Categories" representedClassName="Categories" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Areas" inverseName="categories" inverseEntity="Areas" syncable="YES"/>
         <relationship name="pointofinterest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PointOfInterests" inverseName="categories" inverseEntity="PointOfInterests" syncable="YES"/>
     </entity>
-    <entity name="Icons" syncable="YES">
+    <entity name="Icons" representedClassName="Icons" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Areas" inverseName="icon" inverseEntity="Areas" syncable="YES"/>
         <relationship name="pointOfInterest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PointOfInterests" inverseName="icon" inverseEntity="PointOfInterests" syncable="YES"/>
     </entity>
-    <entity name="Locations" syncable="YES">
+    <entity name="Locations" representedClassName="Locations" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="beacon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Beacons" inverseName="location" inverseEntity="Beacons" syncable="YES"/>
         <relationship name="pointOfInterest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PointOfInterests" inverseName="location" inverseEntity="PointOfInterests" syncable="YES"/>
         <relationship name="polygon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Polygons" inverseName="locations" inverseEntity="Polygons" syncable="YES"/>
     </entity>
-    <entity name="PointOfInterests" syncable="YES">
+    <entity name="PointOfInterests" representedClassName="PointOfInterests" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categories" inverseName="pointofinterest" inverseEntity="Categories" syncable="YES"/>
         <relationship name="icon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Icons" inverseName="pointOfInterest" inverseEntity="Icons" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Locations" inverseName="pointOfInterest" inverseEntity="Locations" syncable="YES"/>
         <relationship name="subArea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubAreas" inverseName="pointOfInterests" inverseEntity="SubAreas" syncable="YES"/>
     </entity>
-    <entity name="Polygons" syncable="YES">
+    <entity name="Polygons" representedClassName="Polygons" syncable="YES">
         <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Areas" inverseName="polygon" inverseEntity="Areas" syncable="YES"/>
         <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Locations" inverseName="polygon" inverseEntity="Locations" syncable="YES"/>
         <relationship name="subArea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubAreas" inverseName="polygon" inverseEntity="SubAreas" syncable="YES"/>
     </entity>
-    <entity name="SubAreas" syncable="YES">
+    <entity name="SubAreas" representedClassName="SubAreas" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Areas" inverseName="subAreas" inverseEntity="Areas" syncable="YES"/>
         <relationship name="beacons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Beacons" inverseName="subArea" inverseEntity="Beacons" syncable="YES"/>
@@ -60,8 +62,8 @@
     </entity>
     <elements>
         <element name="Areas" positionX="126" positionY="-27" width="128" height="178"/>
-        <element name="Beacons" positionX="547" positionY="9" width="128" height="103"/>
-        <element name="Buildings" positionX="27" positionY="198" width="128" height="73"/>
+        <element name="Beacons" positionX="556" positionY="9" width="128" height="103"/>
+        <element name="Buildings" positionX="27" positionY="198" width="128" height="103"/>
         <element name="Categories" positionX="360" positionY="-441" width="128" height="88"/>
         <element name="Icons" positionX="655" positionY="387" width="128" height="103"/>
         <element name="Locations" positionX="700" positionY="143" width="128" height="118"/>

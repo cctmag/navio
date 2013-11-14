@@ -8,6 +8,7 @@
 
 #import "MAGAppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "coreData/Areas.h"
 
 @implementation MAGAppDelegate
 
@@ -15,11 +16,105 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+NSManagedObjectContext *context;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyCIC3n26wbW9iPS6wYyAZ0WbrXsIPWv4tQ"];
+    
+    // [self loadFakeData];
+    // [self readData];
+    
+    [self loadBuildings:@"DMC_Resource_Data"];
+    [self readData];
+    
     return YES;
+}
+
+- (void)loadBuildings:(NSString *)buildingPath
+{
+    NSError* err = nil;
+    NSString* dataPath = [[NSBundle mainBundle] pathForResource:buildingPath ofType:@"json"];
+    NSArray* buildings = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:dataPath]
+                                                     options:kNilOptions
+                                                       error:&err];
+    NSLog(@"Imported Banks: %@", buildings);
+    
+    context = [self managedObjectContext];
+    
+    NSManagedObject *building = [NSEntityDescription
+                                    insertNewObjectForEntityForName:@"Buildings"
+                                    inManagedObjectContext:context];
+    
+    for (NSString *str in @[@"name", @"uuid", @"version"]) {
+        [building setValue:[buildings valueForKey:str] forKey:str];
+    }
+    NSMutableSet *areas = [[NSMutableSet alloc] init];
+    for (Areas *area in [buildings valueForKey:@"areas"]) {
+        NSManagedObject *newArea = [NSEntityDescription
+                                    insertNewObjectForEntityForName:@"Areas"
+                                    inManagedObjectContext:context];
+        for (NSString *str in @[@"roomNumber", @"floor", @"name", @"information"]) {
+            [newArea setValue:[area valueForKey:str] forKey:str];
+        }
+        [areas addObject:newArea];
+    }
+    
+    [building setValue:areas forKey:@"areas"];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+
+}
+
+- (void)loadFakeData
+{
+    context = [self managedObjectContext];
+    
+    NSManagedObject *buildingOne = [NSEntityDescription
+                                       insertNewObjectForEntityForName:@"Buildings"
+                                       inManagedObjectContext:context];
+    [buildingOne setValue:@"Digital Media Center" forKey:@"name"];
+    [buildingOne setValue:@"E36397B6-C4FC-4D90-A044-6A35606F8D0D" forKey:@"uuid"];
+    
+    NSManagedObject *area1034 = [NSEntityDescription
+                                          insertNewObjectForEntityForName:@"Areas"
+                                          inManagedObjectContext:context];
+    [area1034 setValue:@1 forKey:@"floor"];
+    [area1034 setValue:@"The classroom where MAG works" forKey:@"information"];
+    [area1034 setValue:@"DMC 1034" forKey:@"name"];
+    [area1034 setValue:@1034 forKey:@"roomNumber"];
+    [area1034 setValue:buildingOne forKey:@"building"];
+    NSSet *areasForBuilding = [[NSSet alloc] initWithObjects:area1034, nil];
+    
+    [buildingOne setValue:areasForBuilding forKey:@"areas"];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
+
+- (void)readData
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Buildings" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *building in fetchedObjects) {
+        NSLog(@"Name: %@", [building valueForKey:@"name"]);
+        NSSet *areas = [building valueForKey:@"areas"];
+        for(Areas *area in areas)
+        {
+            NSLog(@"area: %@", area);
+            //NSLog(@"roomNumber: %@", [area valueForKey:@"roomNumber"]);
+        }
+    }
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

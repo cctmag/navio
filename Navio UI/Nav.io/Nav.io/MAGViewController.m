@@ -16,6 +16,7 @@
 @interface MAGViewController ()
 - (IBAction)centerOnCCT:(UIBarButtonItem *)sender;
 //@property (weak, nonatomic) IBOutlet MKMapView *cctMap;
+@property (weak, nonatomic) IBOutlet UIView *mapViewOnScreen;
 
 @end
 
@@ -23,18 +24,27 @@
 
 GMSMapView *mapView_;
 
-// You don't need to modify the default initWithNibName:bundle: method.
 
-- (void)loadView {
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    //    MAGMapOverlay * mapOverlay = [[MAGMapOverlay alloc] init];
+    //    [self.cctMap addOverlay:mapOverlay];
+    
+    
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:30.407451
                                                             longitude:-91.172437
                                                                  zoom:19];
-    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_ = [GMSMapView mapWithFrame:_mapViewOnScreen.bounds camera:camera];
     mapView_.myLocationEnabled = YES;
     // mapView_.mapType = kGMSTypeHybrid;
-    self.view = mapView_;
+    
+    // self.view = mapView_;
+    [_mapViewOnScreen addSubview:mapView_];
+    // _mapViewOnScreen = mapView_;
     
     // Creates a marker in the center of the map.
     // 30.407035,-91.172672
@@ -55,19 +65,12 @@ GMSMapView *mapView_;
     GMSCoordinateBounds *overlayBounds = [[GMSCoordinateBounds alloc] initWithCoordinate:southWest
                                                                               coordinate:northEast];
     
-    UIImage *icon = [UIImage imageNamed:@"DMC2nfloor.png"];
+    UIImage *icon = [UIImage imageNamed:@"DMC1stfloor.png"];
     GMSGroundOverlay *overlay =
     [GMSGroundOverlay groundOverlayWithBounds:overlayBounds icon:icon];
     overlay.bearing = 6.4;
     overlay.map = mapView_;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    //    MAGMapOverlay * mapOverlay = [[MAGMapOverlay alloc] init];
-    //    [self.cctMap addOverlay:mapOverlay];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +78,9 @@ GMSMapView *mapView_;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 - (IBAction)centerOnCCT:(UIBarButtonItem *)sender {
     /*    MKCoordinateRegion theRegion = self.cctMap.region;

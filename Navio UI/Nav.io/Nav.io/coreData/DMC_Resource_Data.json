@@ -1,0 +1,38 @@
+{
+    "name" : "Digital Media Center",
+    "uuid" : "E36397B6-C4FC-4D90-A044-6A35606F8D0D",
+    "version" : 1.0,
+    "areas" :
+        [
+            {
+                "roomNumber"  : 1034,
+                "floor": 1,
+                "name": "Classroom",
+                "information": "Where the MAG Meets",
+            },
+            {
+                "roomNumber"  : 1031,
+                "floor": 1,
+                "name": "Surround Sound Studio",
+                "information": "8 Channels of Audio",
+            },
+            {
+                "roomNumber"  : 1023,
+                "floor": 1,
+                "name": "Recording Studio Control Room",
+                "information": "Studio Recording",
+            },
+            {
+                "roomNumber"  : 1025,
+                "floor": 1,
+                "name": "Recording Studio Soundhouse",
+                "information": "Recording Studio",
+            },
+            {
+                "roomNumber"  : 1065,
+                "floor": 1,
+                "name": "MILL",
+                "information": "Media Interaction Laboratory & Library",
+            }
+        ]
+}

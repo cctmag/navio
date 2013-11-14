@@ -10,6 +10,7 @@
 		3761AB7017ED21A800F64EF6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3761AB6F17ED21A800F64EF6 /* MapKit.framework */; };
 		3761AB7617ED2F4A00F64EF6 /* MAGMapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3761AB7517ED2F4A00F64EF6 /* MAGMapOverlay.m */; };
 		3761AB7917ED316400F64EF6 /* MAGMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3761AB7817ED316400F64EF6 /* MAGMapOverlayView.m */; };
+		37620B4118246DD900BD5B63 /* DMC_Resource_Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 37620B4018246DD900BD5B63 /* DMC_Resource_Data.json */; };
 		376E5536180762AF00DEFD98 /* MAGBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 376E5535180762AF00DEFD98 /* MAGBeacon.m */; };
 		377076FD17FF96BA00F71B87 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377076FC17FF96BA00F71B87 /* AVFoundation.framework */; };
 		377076FF17FF96C200F71B87 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377076FE17FF96C200F71B87 /* CoreData.framework */; };
@@ -23,6 +24,15 @@
 		3770770F17FF96FF00F71B87 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3770770E17FF96FF00F71B87 /* OpenGLES.framework */; };
 		3770771117FF970600F71B87 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3770771017FF970600F71B87 /* QuartzCore.framework */; };
 		3770771317FF971500F71B87 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3770771217FF971500F71B87 /* SystemConfiguration.framework */; };
+		378A165918246A1E009A8A12 /* PointOfInterests.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A165818246A1E009A8A12 /* PointOfInterests.m */; };
+		378A165C18246A1E009A8A12 /* Buildings.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A165B18246A1E009A8A12 /* Buildings.m */; };
+		378A165F18246A1E009A8A12 /* Beacons.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A165E18246A1E009A8A12 /* Beacons.m */; };
+		378A166218246A1F009A8A12 /* Icons.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A166118246A1F009A8A12 /* Icons.m */; };
+		378A166518246A1F009A8A12 /* Areas.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A166418246A1F009A8A12 /* Areas.m */; };
+		378A166818246A1F009A8A12 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A166718246A1F009A8A12 /* Categories.m */; };
+		378A166B18246A1F009A8A12 /* Locations.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A166A18246A1F009A8A12 /* Locations.m */; };
+		378A166E18246A1F009A8A12 /* Polygons.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A166D18246A1F009A8A12 /* Polygons.m */; };
+		378A167118246A1F009A8A12 /* SubAreas.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A167018246A1F009A8A12 /* SubAreas.m */; };
 		37D54A271811F298000B9BD1 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D54A261811F298000B9BD1 /* GoogleMaps.framework */; };
 		37D54A291811F2A5000B9BD1 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37D54A281811F2A5000B9BD1 /* GoogleMaps.bundle */; };
 		37D54A2C1811F60E000B9BD1 /* DMC1stfloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D54A2A1811F60E000B9BD1 /* DMC1stfloor.png */; };
@@ -61,6 +71,7 @@
 		3761AB7517ED2F4A00F64EF6 /* MAGMapOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGMapOverlay.m; sourceTree = "<group>"; };
 		3761AB7717ED316400F64EF6 /* MAGMapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGMapOverlayView.h; sourceTree = "<group>"; };
 		3761AB7817ED316400F64EF6 /* MAGMapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGMapOverlayView.m; sourceTree = "<group>"; };
+		37620B4018246DD900BD5B63 /* DMC_Resource_Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DMC_Resource_Data.json; path = coreData/DMC_Resource_Data.json; sourceTree = "<group>"; };
 		376E5534180762AF00DEFD98 /* MAGBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGBeacon.h; sourceTree = "<group>"; };
 		376E5535180762AF00DEFD98 /* MAGBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGBeacon.m; sourceTree = "<group>"; };
 		377076FC17FF96BA00F71B87 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -75,6 +86,24 @@
 		3770770E17FF96FF00F71B87 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		3770771017FF970600F71B87 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3770771217FF971500F71B87 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		378A165718246A1E009A8A12 /* PointOfInterests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointOfInterests.h; path = coreData/PointOfInterests.h; sourceTree = "<group>"; };
+		378A165818246A1E009A8A12 /* PointOfInterests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointOfInterests.m; path = coreData/PointOfInterests.m; sourceTree = "<group>"; };
+		378A165A18246A1E009A8A12 /* Buildings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Buildings.h; path = coreData/Buildings.h; sourceTree = "<group>"; };
+		378A165B18246A1E009A8A12 /* Buildings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Buildings.m; path = coreData/Buildings.m; sourceTree = "<group>"; };
+		378A165D18246A1E009A8A12 /* Beacons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Beacons.h; path = coreData/Beacons.h; sourceTree = "<group>"; };
+		378A165E18246A1E009A8A12 /* Beacons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Beacons.m; path = coreData/Beacons.m; sourceTree = "<group>"; };
+		378A166018246A1F009A8A12 /* Icons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Icons.h; path = coreData/Icons.h; sourceTree = "<group>"; };
+		378A166118246A1F009A8A12 /* Icons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Icons.m; path = coreData/Icons.m; sourceTree = "<group>"; };
+		378A166318246A1F009A8A12 /* Areas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Areas.h; path = coreData/Areas.h; sourceTree = "<group>"; };
+		378A166418246A1F009A8A12 /* Areas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Areas.m; path = coreData/Areas.m; sourceTree = "<group>"; };
+		378A166618246A1F009A8A12 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categories.h; path = coreData/Categories.h; sourceTree = "<group>"; };
+		378A166718246A1F009A8A12 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categories.m; path = coreData/Categories.m; sourceTree = "<group>"; };
+		378A166918246A1F009A8A12 /* Locations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Locations.h; path = coreData/Locations.h; sourceTree = "<group>"; };
+		378A166A18246A1F009A8A12 /* Locations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Locations.m; path = coreData/Locations.m; sourceTree = "<group>"; };
+		378A166C18246A1F009A8A12 /* Polygons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Polygons.h; path = coreData/Polygons.h; sourceTree = "<group>"; };
+		378A166D18246A1F009A8A12 /* Polygons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Polygons.m; path = coreData/Polygons.m; sourceTree = "<group>"; };
+		378A166F18246A1F009A8A12 /* SubAreas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubAreas.h; path = coreData/SubAreas.h; sourceTree = "<group>"; };
+		378A167018246A1F009A8A12 /* SubAreas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubAreas.m; path = coreData/SubAreas.m; sourceTree = "<group>"; };
 		37D54A261811F298000B9BD1 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		37D54A281811F2A5000B9BD1 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		37D54A2A1811F60E000B9BD1 /* DMC1stfloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DMC1stfloor.png; sourceTree = "<group>"; };
@@ -149,6 +178,32 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		378A167218246A31009A8A12 /* coreData */ = {
+			isa = PBXGroup;
+			children = (
+				37620B4018246DD900BD5B63 /* DMC_Resource_Data.json */,
+				378A166F18246A1F009A8A12 /* SubAreas.h */,
+				378A167018246A1F009A8A12 /* SubAreas.m */,
+				378A166C18246A1F009A8A12 /* Polygons.h */,
+				378A166D18246A1F009A8A12 /* Polygons.m */,
+				378A166918246A1F009A8A12 /* Locations.h */,
+				378A166A18246A1F009A8A12 /* Locations.m */,
+				378A166618246A1F009A8A12 /* Categories.h */,
+				378A166718246A1F009A8A12 /* Categories.m */,
+				378A166318246A1F009A8A12 /* Areas.h */,
+				378A166418246A1F009A8A12 /* Areas.m */,
+				378A166018246A1F009A8A12 /* Icons.h */,
+				378A166118246A1F009A8A12 /* Icons.m */,
+				378A165D18246A1E009A8A12 /* Beacons.h */,
+				378A165E18246A1E009A8A12 /* Beacons.m */,
+				378A165A18246A1E009A8A12 /* Buildings.h */,
+				378A165B18246A1E009A8A12 /* Buildings.m */,
+				378A165718246A1E009A8A12 /* PointOfInterests.h */,
+				378A165818246A1E009A8A12 /* PointOfInterests.m */,
+			);
+			name = coreData;
+			sourceTree = "<group>";
+		};
 		37E57DC317ED16C60090A957 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +268,7 @@
 				376E5534180762AF00DEFD98 /* MAGBeacon.h */,
 				376E5535180762AF00DEFD98 /* MAGBeacon.m */,
 				37D54A6F18120D17000B9BD1 /* navio.xcdatamodeld */,
+				378A167218246A31009A8A12 /* coreData */,
 			);
 			path = Nav.io;
 			sourceTree = "<group>";
@@ -328,6 +384,7 @@
 				37E57DEB17ED16C60090A957 /* Images.xcassets in Resources */,
 				37E57DE317ED16C60090A957 /* Main_iPhone.storyboard in Resources */,
 				37D54A291811F2A5000B9BD1 /* GoogleMaps.bundle in Resources */,
+				37620B4118246DD900BD5B63 /* DMC_Resource_Data.json in Resources */,
 				37D54A2D1811F60E000B9BD1 /* DMC2nfloor.png in Resources */,
 				37E57DDA17ED16C60090A957 /* InfoPlist.strings in Resources */,
 			);
@@ -348,13 +405,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378A166E18246A1F009A8A12 /* Polygons.m in Sources */,
+				378A166218246A1F009A8A12 /* Icons.m in Sources */,
 				3761AB7917ED316400F64EF6 /* MAGMapOverlayView.m in Sources */,
 				376E5536180762AF00DEFD98 /* MAGBeacon.m in Sources */,
 				37D54A7118120D17000B9BD1 /* navio.xcdatamodeld in Sources */,
 				37E57DE017ED16C60090A957 /* MAGAppDelegate.m in Sources */,
 				37E57DE917ED16C60090A957 /* MAGViewController.m in Sources */,
+				378A166518246A1F009A8A12 /* Areas.m in Sources */,
+				378A165F18246A1E009A8A12 /* Beacons.m in Sources */,
+				378A166818246A1F009A8A12 /* Categories.m in Sources */,
+				378A165918246A1E009A8A12 /* PointOfInterests.m in Sources */,
+				378A167118246A1F009A8A12 /* SubAreas.m in Sources */,
 				37E57DDC17ED16C60090A957 /* main.m in Sources */,
 				3761AB7617ED2F4A00F64EF6 /* MAGMapOverlay.m in Sources */,
+				378A166B18246A1F009A8A12 /* Locations.m in Sources */,
+				378A165C18246A1E009A8A12 /* Buildings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
