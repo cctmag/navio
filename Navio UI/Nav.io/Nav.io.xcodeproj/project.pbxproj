@@ -33,6 +33,7 @@
 		378A166B18246A1F009A8A12 /* Locations.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A166A18246A1F009A8A12 /* Locations.m */; };
 		378A166E18246A1F009A8A12 /* Polygons.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A166D18246A1F009A8A12 /* Polygons.m */; };
 		378A167118246A1F009A8A12 /* SubAreas.m in Sources */ = {isa = PBXBuildFile; fileRef = 378A167018246A1F009A8A12 /* SubAreas.m */; };
+		37A77CB21835962C004442EC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37A77CB11835962C004442EC /* Main_iPhone.storyboard */; };
 		37D54A271811F298000B9BD1 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D54A261811F298000B9BD1 /* GoogleMaps.framework */; };
 		37D54A291811F2A5000B9BD1 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37D54A281811F2A5000B9BD1 /* GoogleMaps.bundle */; };
 		37D54A2C1811F60E000B9BD1 /* DMC1stfloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D54A2A1811F60E000B9BD1 /* DMC1stfloor.png */; };
@@ -44,7 +45,6 @@
 		37E57DDA17ED16C60090A957 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37E57DD817ED16C60090A957 /* InfoPlist.strings */; };
 		37E57DDC17ED16C60090A957 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57DDB17ED16C60090A957 /* main.m */; };
 		37E57DE017ED16C60090A957 /* MAGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57DDF17ED16C60090A957 /* MAGAppDelegate.m */; };
-		37E57DE317ED16C60090A957 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57DE117ED16C60090A957 /* Main_iPhone.storyboard */; };
 		37E57DE617ED16C60090A957 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57DE417ED16C60090A957 /* Main_iPad.storyboard */; };
 		37E57DE917ED16C60090A957 /* MAGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57DE817ED16C60090A957 /* MAGViewController.m */; };
 		37E57DEB17ED16C60090A957 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57DEA17ED16C60090A957 /* Images.xcassets */; };
@@ -104,6 +104,7 @@
 		378A166D18246A1F009A8A12 /* Polygons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Polygons.m; path = coreData/Polygons.m; sourceTree = "<group>"; };
 		378A166F18246A1F009A8A12 /* SubAreas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubAreas.h; path = coreData/SubAreas.h; sourceTree = "<group>"; };
 		378A167018246A1F009A8A12 /* SubAreas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubAreas.m; path = coreData/SubAreas.m; sourceTree = "<group>"; };
+		37A77CB11835962C004442EC /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		37D54A261811F298000B9BD1 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		37D54A281811F2A5000B9BD1 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		37D54A2A1811F60E000B9BD1 /* DMC1stfloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DMC1stfloor.png; sourceTree = "<group>"; };
@@ -119,7 +120,6 @@
 		37E57DDD17ED16C60090A957 /* Nav.io-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nav.io-Prefix.pch"; sourceTree = "<group>"; };
 		37E57DDE17ED16C60090A957 /* MAGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAGAppDelegate.h; sourceTree = "<group>"; };
 		37E57DDF17ED16C60090A957 /* MAGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAGAppDelegate.m; sourceTree = "<group>"; };
-		37E57DE217ED16C60090A957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		37E57DE517ED16C60090A957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		37E57DE717ED16C60090A957 /* MAGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAGViewController.h; sourceTree = "<group>"; };
 		37E57DE817ED16C60090A957 /* MAGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAGViewController.m; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 			children = (
 				37E57DDE17ED16C60090A957 /* MAGAppDelegate.h */,
 				37E57DDF17ED16C60090A957 /* MAGAppDelegate.m */,
-				37E57DE117ED16C60090A957 /* Main_iPhone.storyboard */,
+				37A77CB11835962C004442EC /* Main_iPhone.storyboard */,
 				37E57DE417ED16C60090A957 /* Main_iPad.storyboard */,
 				37E57DE717ED16C60090A957 /* MAGViewController.h */,
 				37E57DE817ED16C60090A957 /* MAGViewController.m */,
@@ -382,8 +382,8 @@
 				37D54A2C1811F60E000B9BD1 /* DMC1stfloor.png in Resources */,
 				37E57DE617ED16C60090A957 /* Main_iPad.storyboard in Resources */,
 				37E57DEB17ED16C60090A957 /* Images.xcassets in Resources */,
-				37E57DE317ED16C60090A957 /* Main_iPhone.storyboard in Resources */,
 				37D54A291811F2A5000B9BD1 /* GoogleMaps.bundle in Resources */,
+				37A77CB21835962C004442EC /* Main_iPhone.storyboard in Resources */,
 				37620B4118246DD900BD5B63 /* DMC_Resource_Data.json in Resources */,
 				37D54A2D1811F60E000B9BD1 /* DMC2nfloor.png in Resources */,
 				37E57DDA17ED16C60090A957 /* InfoPlist.strings in Resources */,
@@ -449,14 +449,6 @@
 				37E57DD917ED16C60090A957 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		37E57DE117ED16C60090A957 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				37E57DE217ED16C60090A957 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		37E57DE417ED16C60090A957 /* Main_iPad.storyboard */ = {
