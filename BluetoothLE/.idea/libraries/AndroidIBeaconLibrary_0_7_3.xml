@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="AndroidIBeaconLibrary-0.7.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bluetoothle/build/exploded-bundles/ComRadiusnetworksAndroidIBeaconLibrary073.aar/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/bluetoothle/build/exploded-bundles/ComRadiusnetworksAndroidIBeaconLibrary073.aar/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
